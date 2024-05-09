@@ -1,0 +1,327 @@
+[gd_scene load_steps=10 format=3 uid="uid://cxwrl3deewp47"]
+
+[ext_resource type="Texture2D" uid="uid://dj6jekibefp0m" path="res://sprites/wall_contrast.png" id="1_gseps"]
+[ext_resource type="Script" path="res://scripts/Minigame/suicider.gd" id="1_h1qxd"]
+[ext_resource type="PackedScene" uid="uid://dvlfgoagr1ojq" path="res://misc/horizontal_barrier.tscn" id="2_j0rjo"]
+[ext_resource type="PackedScene" uid="uid://c7rs6gv0m3fn5" path="res://misc/minigame/floor_orange.tscn" id="3_ncfph"]
+[ext_resource type="PackedScene" uid="uid://cygmsrya4h1ke" path="res://misc/minigame/hazard_companion_cube.tscn" id="4_tamiv"]
+[ext_resource type="PackedScene" uid="uid://ddeg5qpvdxto0" path="res://misc/minigame/hazard_spikes.tscn" id="5_mngqs"]
+[ext_resource type="PackedScene" uid="uid://c53s5esry2gwu" path="res://misc/minigame/help_block_jump.tscn" id="6_b0g2l"]
+[ext_resource type="PackedScene" uid="uid://bun2xa8aqkwjt" path="res://misc/minigame/block_orange.tscn" id="7_6cfqj"]
+[ext_resource type="PackedScene" uid="uid://b5rirxeymhkom" path="res://misc/block.tscn" id="8_1bqd5"]
+
+[node name="root" type="Node2D"]
+script = ExtResource("1_h1qxd")
+
+[node name="MainRoom" type="ColorRect" parent="."]
+custom_minimum_size = Vector2(1280, 720)
+offset_right = 1280.0
+offset_bottom = 720.0
+pivot_offset = Vector2(348, 573)
+color = Color(1, 0, 0, 1)
+
+[node name="Sprite2D3" type="Sprite2D" parent="MainRoom"]
+position = Vector2(1280, 0)
+texture = ExtResource("1_gseps")
+centered = false
+
+[node name="Sprite2D4" type="Sprite2D" parent="MainRoom"]
+texture = ExtResource("1_gseps")
+centered = false
+
+[node name="Roof" parent="MainRoom" instance=ExtResource("2_j0rjo")]
+layout_mode = 1
+
+[node name="Roof2" parent="MainRoom" instance=ExtResource("2_j0rjo")]
+layout_mode = 1
+offset_left = 1280.0
+offset_right = 2560.0
+
+[node name="Horizontal Barrier" parent="MainRoom" instance=ExtResource("3_ncfph")]
+layout_mode = 1
+offset_top = -48.0
+offset_bottom = 0.0
+
+[node name="Horizontal Barrier2" parent="MainRoom" instance=ExtResource("3_ncfph")]
+layout_mode = 1
+offset_left = 1280.0
+offset_top = -48.0
+offset_right = 2560.0
+offset_bottom = 0.0
+
+[node name="Obstacle_1" type="Node2D" parent="."]
+position = Vector2(1600, 376)
+
+[node name="Area2D" parent="Obstacle_1" instance=ExtResource("4_tamiv")]
+position = Vector2(154, 7)
+
+[node name="Area2D2" parent="Obstacle_1" instance=ExtResource("4_tamiv")]
+position = Vector2(89, 7)
+
+[node name="Obstacle_2" type="Node2D" parent="."]
+position = Vector2(1216, 80)
+rotation = -3.14159
+
+[node name="Area2D" parent="Obstacle_2" instance=ExtResource("5_mngqs")]
+
+[node name="Area2D2" parent="Obstacle_2" instance=ExtResource("5_mngqs")]
+position = Vector2(128, 0)
+
+[node name="Area2D3" parent="Obstacle_2" instance=ExtResource("5_mngqs")]
+position = Vector2(256, 0)
+
+[node name="Area2D4" parent="Obstacle_2" instance=ExtResource("5_mngqs")]
+position = Vector2(384, 0)
+
+[node name="Area2D5" parent="Obstacle_2" instance=ExtResource("5_mngqs")]
+position = Vector2(512, 0)
+
+[node name="Area2D6" parent="Obstacle_2" instance=ExtResource("5_mngqs")]
+position = Vector2(640, 0)
+
+[node name="Area2D7" parent="Obstacle_2" instance=ExtResource("5_mngqs")]
+position = Vector2(768, 0)
+
+[node name="Area2D8" parent="Obstacle_2" instance=ExtResource("5_mngqs")]
+position = Vector2(896, 0)
+
+[node name="Obstacle_5" type="Node2D" parent="."]
+position = Vector2(2488, 80)
+rotation = -3.14159
+
+[node name="Area2D" parent="Obstacle_5" instance=ExtResource("5_mngqs")]
+
+[node name="Area2D2" parent="Obstacle_5" instance=ExtResource("5_mngqs")]
+position = Vector2(128, 0)
+
+[node name="Area2D3" parent="Obstacle_5" instance=ExtResource("5_mngqs")]
+position = Vector2(256, 0)
+
+[node name="Area2D4" parent="Obstacle_5" instance=ExtResource("5_mngqs")]
+position = Vector2(384, 0)
+
+[node name="Area2D5" parent="Obstacle_5" instance=ExtResource("5_mngqs")]
+position = Vector2(512, 0)
+
+[node name="Area2D6" parent="Obstacle_5" instance=ExtResource("5_mngqs")]
+position = Vector2(640, 0)
+
+[node name="Area2D7" parent="Obstacle_5" instance=ExtResource("5_mngqs")]
+position = Vector2(768, 0)
+
+[node name="Area2D8" parent="Obstacle_5" instance=ExtResource("5_mngqs")]
+position = Vector2(896, 0)
+
+[node name="Area2D9" parent="Obstacle_5" instance=ExtResource("5_mngqs")]
+position = Vector2(1024, 0)
+
+[node name="Area2D10" parent="Obstacle_5" instance=ExtResource("5_mngqs")]
+position = Vector2(1152, 0)
+
+[node name="Obstacle_6" type="Node2D" parent="."]
+position = Vector2(1344, 640)
+
+[node name="Area2D" parent="Obstacle_6" instance=ExtResource("5_mngqs")]
+
+[node name="Area2D2" parent="Obstacle_6" instance=ExtResource("5_mngqs")]
+position = Vector2(128, 0)
+
+[node name="Area2D3" parent="Obstacle_6" instance=ExtResource("5_mngqs")]
+position = Vector2(256, 0)
+
+[node name="Area2D4" parent="Obstacle_6" instance=ExtResource("5_mngqs")]
+position = Vector2(384, 0)
+
+[node name="Area2D5" parent="Obstacle_6" instance=ExtResource("5_mngqs")]
+position = Vector2(512, 0)
+
+[node name="Area2D6" parent="Obstacle_6" instance=ExtResource("5_mngqs")]
+position = Vector2(640, 0)
+
+[node name="Area2D7" parent="Obstacle_6" instance=ExtResource("5_mngqs")]
+position = Vector2(768, 0)
+
+[node name="Area2D8" parent="Obstacle_6" instance=ExtResource("5_mngqs")]
+position = Vector2(896, 0)
+
+[node name="Area2D9" parent="Obstacle_6" instance=ExtResource("5_mngqs")]
+position = Vector2(1024, 0)
+
+[node name="Area2D10" parent="Obstacle_6" instance=ExtResource("5_mngqs")]
+position = Vector2(1152, 0)
+
+[node name="Obstacle_7" type="Node2D" parent="."]
+position = Vector2(64, 640)
+
+[node name="Area2D" parent="Obstacle_7" instance=ExtResource("5_mngqs")]
+
+[node name="Area2D2" parent="Obstacle_7" instance=ExtResource("5_mngqs")]
+position = Vector2(128, 0)
+
+[node name="Area2D3" parent="Obstacle_7" instance=ExtResource("5_mngqs")]
+position = Vector2(256, 0)
+
+[node name="Area2D4" parent="Obstacle_7" instance=ExtResource("5_mngqs")]
+position = Vector2(384, 0)
+
+[node name="Area2D5" parent="Obstacle_7" instance=ExtResource("5_mngqs")]
+position = Vector2(512, 0)
+
+[node name="Area2D6" parent="Obstacle_7" instance=ExtResource("5_mngqs")]
+position = Vector2(640, 0)
+
+[node name="Area2D7" parent="Obstacle_7" instance=ExtResource("5_mngqs")]
+position = Vector2(768, 0)
+
+[node name="Area2D8" parent="Obstacle_7" instance=ExtResource("5_mngqs")]
+position = Vector2(896, 0)
+
+[node name="Area2D9" parent="Obstacle_7" instance=ExtResource("5_mngqs")]
+position = Vector2(1024, 0)
+
+[node name="Area2D10" parent="Obstacle_7" instance=ExtResource("5_mngqs")]
+position = Vector2(1152, 0)
+
+[node name="Obstacle_3" type="Node2D" parent="."]
+position = Vector2(272, 560)
+
+[node name="help_block_jump" parent="Obstacle_3" instance=ExtResource("6_b0g2l")]
+
+[node name="help_block_jump2" parent="Obstacle_3" instance=ExtResource("6_b0g2l")]
+position = Vector2(48, 0)
+
+[node name="help_block_jump3" parent="Obstacle_3" instance=ExtResource("6_b0g2l")]
+position = Vector2(96, 0)
+
+[node name="help_block_jump4" parent="Obstacle_3" instance=ExtResource("6_b0g2l")]
+position = Vector2(144, 0)
+
+[node name="help_block_jump5" parent="Obstacle_3" instance=ExtResource("6_b0g2l")]
+position = Vector2(192, 0)
+
+[node name="help_block_jump6" parent="Obstacle_3" instance=ExtResource("6_b0g2l")]
+position = Vector2(240, 0)
+
+[node name="Obstacle_8" type="Node2D" parent="."]
+position = Vector2(768, 440)
+
+[node name="help_block_jump" parent="Obstacle_8" instance=ExtResource("7_6cfqj")]
+
+[node name="help_block_jump2" parent="Obstacle_8" instance=ExtResource("7_6cfqj")]
+position = Vector2(48, 0)
+
+[node name="help_block_jump3" parent="Obstacle_8" instance=ExtResource("7_6cfqj")]
+position = Vector2(96, 0)
+
+[node name="help_block_jump4" parent="Obstacle_8" instance=ExtResource("7_6cfqj")]
+position = Vector2(144, 0)
+
+[node name="help_block_jump5" parent="Obstacle_8" instance=ExtResource("7_6cfqj")]
+position = Vector2(192, 0)
+
+[node name="help_block_jump6" parent="Obstacle_8" instance=ExtResource("7_6cfqj")]
+position = Vector2(240, 0)
+
+[node name="Obstacle_10" type="Node2D" parent="."]
+position = Vector2(1048, 440)
+
+[node name="help_block_jump" parent="Obstacle_10" instance=ExtResource("7_6cfqj")]
+
+[node name="help_block_jump2" parent="Obstacle_10" instance=ExtResource("7_6cfqj")]
+position = Vector2(48, 0)
+
+[node name="help_block_jump3" parent="Obstacle_10" instance=ExtResource("7_6cfqj")]
+position = Vector2(96, 0)
+
+[node name="help_block_jump4" parent="Obstacle_10" instance=ExtResource("7_6cfqj")]
+position = Vector2(144, 0)
+
+[node name="help_block_jump5" parent="Obstacle_10" instance=ExtResource("7_6cfqj")]
+position = Vector2(192, 0)
+
+[node name="help_block_jump6" parent="Obstacle_10" instance=ExtResource("7_6cfqj")]
+position = Vector2(240, 0)
+
+[node name="Obstacle_11" type="Node2D" parent="."]
+position = Vector2(1336, 440)
+
+[node name="help_block_jump" parent="Obstacle_11" instance=ExtResource("7_6cfqj")]
+
+[node name="help_block_jump2" parent="Obstacle_11" instance=ExtResource("7_6cfqj")]
+position = Vector2(48, 0)
+
+[node name="help_block_jump3" parent="Obstacle_11" instance=ExtResource("7_6cfqj")]
+position = Vector2(96, 0)
+
+[node name="help_block_jump4" parent="Obstacle_11" instance=ExtResource("7_6cfqj")]
+position = Vector2(144, 0)
+
+[node name="help_block_jump5" parent="Obstacle_11" instance=ExtResource("7_6cfqj")]
+position = Vector2(192, 0)
+
+[node name="help_block_jump6" parent="Obstacle_11" instance=ExtResource("7_6cfqj")]
+position = Vector2(240, 0)
+
+[node name="Obstacle_12" type="Node2D" parent="."]
+position = Vector2(1624, 440)
+
+[node name="help_block_jump" parent="Obstacle_12" instance=ExtResource("7_6cfqj")]
+
+[node name="help_block_jump2" parent="Obstacle_12" instance=ExtResource("7_6cfqj")]
+position = Vector2(48, 0)
+
+[node name="help_block_jump3" parent="Obstacle_12" instance=ExtResource("7_6cfqj")]
+position = Vector2(96, 0)
+
+[node name="help_block_jump4" parent="Obstacle_12" instance=ExtResource("7_6cfqj")]
+position = Vector2(144, 0)
+
+[node name="help_block_jump5" parent="Obstacle_12" instance=ExtResource("7_6cfqj")]
+position = Vector2(192, 0)
+
+[node name="help_block_jump6" parent="Obstacle_12" instance=ExtResource("7_6cfqj")]
+position = Vector2(240, 0)
+
+[node name="Obstacle_4" type="Node2D" parent="."]
+position = Vector2(-96, 176)
+
+[node name="Area2D9" parent="Obstacle_4" instance=ExtResource("5_mngqs")]
+position = Vector2(904, 208)
+
+[node name="Obstacle_9" type="Node2D" parent="."]
+position = Vector2(1864, 488)
+
+[node name="StaticBody2D" parent="Obstacle_9" instance=ExtResource("8_1bqd5")]
+
+[node name="StaticBody2D2" parent="Obstacle_9" instance=ExtResource("8_1bqd5")]
+position = Vector2(0, 48)
+
+[node name="StaticBody2D3" parent="Obstacle_9" instance=ExtResource("8_1bqd5")]
+position = Vector2(0, 96)
+
+[node name="StaticBody2D4" parent="Obstacle_9" instance=ExtResource("8_1bqd5")]
+position = Vector2(48, 96)
+
+[node name="Area2D9" parent="Obstacle_9" instance=ExtResource("5_mngqs")]
+position = Vector2(56, 8)
+rotation = 1.5708
+
+[node name="help_block_jump" parent="Obstacle_9" instance=ExtResource("6_b0g2l")]
+position = Vector2(96, 96)
+
+[node name="help_block_jump2" parent="Obstacle_9" instance=ExtResource("6_b0g2l")]
+position = Vector2(144, 96)
+
+[node name="help_block_jump3" parent="Obstacle_9" instance=ExtResource("6_b0g2l")]
+position = Vector2(192, 96)
+
+[node name="help_block_jump4" parent="Obstacle_9" instance=ExtResource("6_b0g2l")]
+position = Vector2(240, 96)
+
+[node name="help_block_jump5" parent="Obstacle_9" instance=ExtResource("6_b0g2l")]
+position = Vector2(288, 96)
+
+[node name="help_block_jump6" parent="Obstacle_9" instance=ExtResource("6_b0g2l")]
+position = Vector2(336, 96)
+
+[node name="Obstacle_13" type="Node2D" parent="."]

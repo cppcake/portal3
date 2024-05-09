@@ -1,0 +1,75 @@
+[gd_scene load_steps=20 format=3 uid="uid://ckvp70c5i7wna"]
+
+[ext_resource type="Texture2D" uid="uid://c8nfbmo2wmpsc" path="res://sprites/Shop_Icons/0.png" id="1_ofk3b"]
+[ext_resource type="Texture2D" uid="uid://cg625iya7rved" path="res://sprites/Shop_Icons/1.png" id="2_ldk2j"]
+[ext_resource type="Texture2D" uid="uid://cbjag1y4h6y25" path="res://sprites/Shop_Icons/2.png" id="3_ux4nb"]
+[ext_resource type="Texture2D" uid="uid://ve37xve7j0mv" path="res://sprites/Shop_Icons/4.png" id="4_pjy53"]
+[ext_resource type="Texture2D" uid="uid://42wuva2pu43w" path="res://sprites/Shop_Icons/5.png" id="5_6rvxg"]
+[ext_resource type="Texture2D" uid="uid://bweat0xuyurh6" path="res://sprites/Shop_Icons/9.png" id="6_fmkus"]
+[ext_resource type="Texture2D" uid="uid://185y7mon3d3o" path="res://sprites/Shop_Icons/3.png" id="7_j138j"]
+[ext_resource type="Texture2D" uid="uid://fvay5sixf5yj" path="res://sprites/Shop_Icons/10.png" id="8_mm7uy"]
+[ext_resource type="Texture2D" uid="uid://dvf1nqvpaiqkg" path="res://sprites/Shop_Icons/11.png" id="9_1ol7q"]
+[ext_resource type="Texture2D" uid="uid://divpyvcetv2i6" path="res://sprites/Shop_Icons/6.png" id="10_ur3qn"]
+[ext_resource type="Texture2D" uid="uid://bqghwicy0gsqw" path="res://sprites/Shop_Icons/7.png" id="11_exymx"]
+[ext_resource type="Texture2D" uid="uid://cobcl1ici7vj" path="res://sprites/Shop_Icons/8.png" id="12_vq0rj"]
+[ext_resource type="Texture2D" uid="uid://bvimxgp31atk7" path="res://sprites/Shop_Icons/15.png" id="13_kw40v"]
+[ext_resource type="Texture2D" uid="uid://cymwypupmbmuj" path="res://sprites/Shop_Icons/13.png" id="14_g62vx"]
+[ext_resource type="Texture2D" uid="uid://c5wffyrdpah8j" path="res://sprites/Shop_Icons/12.png" id="15_iuiqy"]
+[ext_resource type="Texture2D" uid="uid://iv2yixgmgii7" path="res://sprites/Shop_Icons/14.png" id="16_he16q"]
+[ext_resource type="Texture2D" uid="uid://cniji4wdombag" path="res://sprites/Shop_Icons/16.png" id="17_umrby"]
+[ext_resource type="Texture2D" uid="uid://dxa5iby0xx1vk" path="res://sprites/Shop_Icons/17.png" id="18_7bi2u"]
+[ext_resource type="Script" path="res://scripts/ItemListLogic.gd" id="19_nn3bx"]
+
+[node name="ItemList" type="ItemList"]
+offset_left = 128.0
+offset_top = 128.0
+offset_right = 1184.0
+offset_bottom = 672.0
+theme_override_constants/h_separation = 5
+theme_override_constants/v_separation = 9
+theme_override_constants/icon_margin = 4
+theme_override_constants/line_separation = 0
+theme_override_constants/outline_size = 0
+item_count = 18
+max_columns = 6
+icon_mode = 0
+fixed_icon_size = Vector2i(164, 164)
+item_0/text = ""
+item_0/icon = ExtResource("1_ofk3b")
+item_1/text = ""
+item_1/icon = ExtResource("2_ldk2j")
+item_2/text = ""
+item_2/icon = ExtResource("3_ux4nb")
+item_3/text = ""
+item_3/icon = ExtResource("4_pjy53")
+item_4/text = ""
+item_4/icon = ExtResource("5_6rvxg")
+item_5/text = ""
+item_5/icon = ExtResource("6_fmkus")
+item_6/text = ""
+item_6/icon = ExtResource("7_j138j")
+item_7/text = ""
+item_7/icon = ExtResource("8_mm7uy")
+item_8/text = ""
+item_8/icon = ExtResource("9_1ol7q")
+item_9/text = ""
+item_9/icon = ExtResource("10_ur3qn")
+item_10/text = ""
+item_10/icon = ExtResource("11_exymx")
+item_11/text = ""
+item_11/icon = ExtResource("12_vq0rj")
+item_12/text = ""
+item_12/icon = ExtResource("13_kw40v")
+item_13/text = ""
+item_13/icon = ExtResource("14_g62vx")
+item_14/text = ""
+item_14/icon = ExtResource("15_iuiqy")
+item_15/text = ""
+item_15/icon = ExtResource("16_he16q")
+item_16/text = ""
+item_16/icon = ExtResource("17_umrby")
+item_17/text = ""
+item_17/icon = ExtResource("18_7bi2u")
+script = ExtResource("19_nn3bx")
+
+[connection signal="item_clicked" from="." to="." method="_on_item_clicked"]

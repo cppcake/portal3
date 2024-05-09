@@ -1,0 +1,60 @@
+[gd_scene load_steps=5 format=3 uid="uid://dwktf48pn8ob8"]
+
+[ext_resource type="Texture2D" uid="uid://deqtl1mn6wcvc" path="res://sprites/wall.png" id="1_adssv"]
+[ext_resource type="Script" path="res://scripts/ButtonReturn.gd" id="2_eg5bf"]
+[ext_resource type="PackedScene" uid="uid://ckvp70c5i7wna" path="res://misc/shop/item_list.tscn" id="3_lxxgi"]
+[ext_resource type="Script" path="res://scripts/ServerCom/player_info_update.gd" id="4_hunt3"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_adssv")
+centered = false
+
+[node name="ButtonReturn" type="Button" parent="Sprite2D"]
+offset_left = 16.0
+offset_top = 16.0
+offset_right = 114.0
+offset_bottom = 47.0
+text = "Return Hub"
+script = ExtResource("2_eg5bf")
+path = "res://level/Hub.tscn"
+
+[node name="ItemList" parent="Sprite2D" instance=ExtResource("3_lxxgi")]
+
+[node name="CenterContainer" type="CenterContainer" parent="Sprite2D"]
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 904.0
+offset_top = 56.0
+offset_right = -56.0
+offset_bottom = 112.0
+grow_horizontal = 2
+
+[node name="player_info" type="VBoxContainer" parent="Sprite2D/CenterContainer"]
+layout_mode = 2
+script = ExtResource("4_hunt3")
+
+[node name="ID" type="Label" parent="Sprite2D/CenterContainer/player_info"]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 2
+text = "Name:
+Companion Dollars:"
+
+[node name="sign" type="Label" parent="Sprite2D"]
+modulate = Color(0, 0, 0, 1)
+self_modulate = Color(0, 0, 0, 1)
+z_index = 5
+offset_left = 128.0
+offset_top = 80.0
+offset_right = 227.0
+offset_bottom = 111.0
+theme_override_font_sizes/font_size = 20
+
+[connection signal="pressed" from="Sprite2D/ButtonReturn" to="Sprite2D/ButtonReturn" method="_on_pressed"]

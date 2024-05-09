@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://bun2xa8aqkwjt"]
+
+[ext_resource type="Texture2D" uid="uid://cb00l3vqou2jw" path="res://sprites/Minigame/block_orange_gel.png" id="1_shgig"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yn72o"]
+size = Vector2(48, 48)
+
+[node name="help_block_jump" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = 5
+texture = ExtResource("1_shgig")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("RectangleShape2D_yn72o")

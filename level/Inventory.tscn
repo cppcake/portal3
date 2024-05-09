@@ -1,0 +1,543 @@
+[gd_scene load_steps=33 format=3 uid="uid://bgv2pd05u8iow"]
+
+[ext_resource type="Texture2D" uid="uid://deqtl1mn6wcvc" path="res://sprites/wall.png" id="1_km813"]
+[ext_resource type="PackedScene" uid="uid://dvlfgoagr1ojq" path="res://misc/horizontal_barrier.tscn" id="2_4fnkn"]
+[ext_resource type="PackedScene" uid="uid://cd16ap2lovc83" path="res://misc/vertical_barrier.tscn" id="3_jw06f"]
+[ext_resource type="AudioStream" uid="uid://b82k4cgoluklx" path="res://sounds/music/inventory_music.mp3" id="4_rwne8"]
+[ext_resource type="PackedScene" uid="uid://jg20aef2fpib" path="res://misc/Player.tscn" id="6_j8mu8"]
+[ext_resource type="Script" path="res://scripts/portal_logic.gd" id="7_wcb8a"]
+[ext_resource type="PackedScene" uid="uid://6180x1ut1c5g" path="res://misc/portal.tscn" id="8_w5yfq"]
+[ext_resource type="Texture2D" uid="uid://7ii2ch1sfwok" path="res://sprites/blue_portal.png" id="9_ig1qp"]
+[ext_resource type="Texture2D" uid="uid://bccb3lmtkyn86" path="res://sprites/orange_portal.png" id="10_dsbxu"]
+[ext_resource type="PackedScene" uid="uid://btcwsaquo11g7" path="res://misc/door.tscn" id="11_nof8m"]
+[ext_resource type="PackedScene" uid="uid://b5rirxeymhkom" path="res://misc/block.tscn" id="12_qun3p"]
+[ext_resource type="Texture2D" uid="uid://clwrgwncjyd2n" path="res://sprites/Transparent_Shop_Icons/T_GLaDOS.png" id="12_ssln1"]
+[ext_resource type="Texture2D" uid="uid://cv5cjvexpju3y" path="res://sprites/Transparent_Shop_Icons/T_Adventure_Core.png" id="13_f8o6e"]
+[ext_resource type="Script" path="res://scripts/inventory/inventorymanager.gd" id="13_gwdhm"]
+[ext_resource type="Texture2D" uid="uid://dhytwy0xjrrgi" path="res://sprites/Transparent_Shop_Icons/T_Wheatley.png" id="14_jt080"]
+[ext_resource type="Texture2D" uid="uid://dyho3h4pntrg3" path="res://sprites/Transparent_Shop_Icons/T_Space_Core.png" id="15_dg1f1"]
+[ext_resource type="Texture2D" uid="uid://l4me043p1w4t" path="res://sprites/Transparent_Shop_Icons/T_Fact_Core.png" id="16_m7h2b"]
+[ext_resource type="Texture2D" uid="uid://bbwmx0tv0or6d" path="res://sprites/Transparent_Shop_Icons/T_Animal_King_ Turret.png" id="17_i64bx"]
+[ext_resource type="Texture2D" uid="uid://gdiixqow0ji8" path="res://sprites/Transparent_Shop_Icons/T_Atlas.png" id="18_3y8lk"]
+[ext_resource type="Texture2D" uid="uid://dex5roq1psk3a" path="res://sprites/Transparent_Shop_Icons/T_Cake.png" id="19_71qaw"]
+[ext_resource type="Texture2D" uid="uid://fgc43yf5snyj" path="res://sprites/Transparent_Shop_Icons/T_P-body.png" id="20_68msp"]
+[ext_resource type="Texture2D" uid="uid://c3c67g2ssi2lm" path="res://sprites/Transparent_Shop_Icons/T_PotatOS.png" id="21_hi2q0"]
+[ext_resource type="Texture2D" uid="uid://c0hybl06j5eh7" path="res://sprites/Transparent_Shop_Icons/T_Sentry_Turret.png" id="22_7dm7q"]
+[ext_resource type="Texture2D" uid="uid://1wkpc453nnyd" path="res://sprites/Transparent_Shop_Icons/T_Weighted_Cube.png" id="23_hwrfk"]
+[ext_resource type="Texture2D" uid="uid://c8h6ajyxbvtje" path="res://sprites/Transparent_Shop_Icons/T_Discouragement_Redirection_Cube.png" id="25_a6vw8"]
+[ext_resource type="Texture2D" uid="uid://bq18fy7o6b5pa" path="res://sprites/Minigame/companion_cube.png" id="25_yp660"]
+[ext_resource type="Texture2D" uid="uid://brpbbr54b8khk" path="res://sprites/Transparent_Shop_Icons/T_Edgeless_Safety_Cube.png" id="26_0bv8t"]
+[ext_resource type="Texture2D" uid="uid://bn2mjnn455wds" path="res://sprites/Transparent_Shop_Icons/T_Opera_Turret.png" id="27_p30dk"]
+[ext_resource type="Texture2D" uid="uid://bxd3bf420d25m" path="res://sprites/Minigame/black_wall.png" id="28_oclcg"]
+[ext_resource type="Texture2D" uid="uid://b6syvubxsxplc" path="res://sprites/Transparent_Shop_Icons/T_Handheld_Portal_Device.png" id="29_nag26"]
+[ext_resource type="Texture2D" uid="uid://dhkkd3xpclh4p" path="res://sprites/Transparent_Shop_Icons/T_Long_Fall_Boots.png" id="30_sru6t"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_73agj"]
+size = Vector2(210, 154)
+
+[node name="root" type="Node2D"]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+custom_minimum_size = Vector2(1280, 720)
+offset_right = 1280.0
+offset_bottom = 720.0
+pivot_offset = Vector2(348, 573)
+color = Color(1, 0, 0, 1)
+
+[node name="Sprite2D" type="Sprite2D" parent="ColorRect"]
+texture = ExtResource("1_km813")
+centered = false
+
+[node name="Floor" parent="ColorRect" instance=ExtResource("2_4fnkn")]
+layout_mode = 0
+anchors_preset = 0
+anchor_top = 0.0
+anchor_bottom = 0.0
+offset_top = 672.0
+offset_bottom = 720.0
+grow_vertical = 1
+
+[node name="Roof" parent="ColorRect" instance=ExtResource("2_4fnkn")]
+layout_mode = 1
+
+[node name="Wall-Left" parent="ColorRect" instance=ExtResource("3_jw06f")]
+layout_mode = 1
+offset_left = 1232.0
+offset_top = -672.0
+offset_right = 1280.0
+offset_bottom = -48.0
+
+[node name="Wall-Right" parent="ColorRect" instance=ExtResource("3_jw06f")]
+layout_mode = 1
+offset_top = -672.0
+offset_bottom = -48.0
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="ColorRect"]
+stream = ExtResource("4_rwne8")
+autoplay = true
+
+[node name="Player" parent="." instance=ExtResource("6_j8mu8")]
+position = Vector2(1064, 224)
+
+[node name="PortalControl" type="Node2D" parent="."]
+script = ExtResource("7_wcb8a")
+
+[node name="Blue" parent="PortalControl" instance=ExtResource("8_w5yfq")]
+visible = false
+position = Vector2(-192, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="PortalControl/Blue"]
+texture = ExtResource("9_ig1qp")
+
+[node name="Orange" parent="PortalControl" instance=ExtResource("8_w5yfq")]
+visible = false
+position = Vector2(-128, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="PortalControl/Orange"]
+texture = ExtResource("10_dsbxu")
+
+[node name="Test" parent="PortalControl" instance=ExtResource("8_w5yfq")]
+position = Vector2(-64, 0)
+
+[node name="Obstacle1" type="Node2D" parent="."]
+position = Vector2(8, -8)
+
+[node name="Door" parent="Obstacle1" instance=ExtResource("11_nof8m")]
+position = Vector2(1160, 208)
+path = "res://level/Hub.tscn"
+
+[node name="Label" type="Label" parent="Obstacle1/Door"]
+modulate = Color(0, 0, 0, 1)
+offset_left = -40.0
+offset_top = -88.0
+offset_right = 38.0
+offset_bottom = -62.0
+text = "HUB
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="StaticBody2D" parent="Obstacle1" instance=ExtResource("12_qun3p")]
+position = Vector2(1208, 296)
+
+[node name="StaticBody2D2" parent="Obstacle1" instance=ExtResource("12_qun3p")]
+position = Vector2(1160, 296)
+
+[node name="StaticBody2D3" parent="Obstacle1" instance=ExtResource("12_qun3p")]
+position = Vector2(1112, 296)
+
+[node name="StaticBody2D4" parent="Obstacle1" instance=ExtResource("12_qun3p")]
+position = Vector2(1064, 296)
+
+[node name="StaticBody2D5" parent="Obstacle1" instance=ExtResource("12_qun3p")]
+position = Vector2(1016, 296)
+
+[node name="Obstacle2" type="Node2D" parent="."]
+position = Vector2(72, 504)
+
+[node name="StaticBody2D" parent="Obstacle2" instance=ExtResource("12_qun3p")]
+
+[node name="StaticBody2D2" parent="Obstacle2" instance=ExtResource("12_qun3p")]
+position = Vector2(48, 0)
+
+[node name="StaticBody2D3" parent="Obstacle2" instance=ExtResource("12_qun3p")]
+position = Vector2(96, 0)
+
+[node name="StaticBody2D4" parent="Obstacle2" instance=ExtResource("12_qun3p")]
+position = Vector2(144, 0)
+
+[node name="StaticBody2D5" parent="Obstacle2" instance=ExtResource("12_qun3p")]
+position = Vector2(192, 0)
+
+[node name="Obstacle3" type="Node2D" parent="."]
+position = Vector2(64, 576)
+
+[node name="StaticBody2D" parent="Obstacle3" instance=ExtResource("12_qun3p")]
+position = Vector2(200, 72)
+
+[node name="StaticBody2D2" parent="Obstacle3" instance=ExtResource("12_qun3p")]
+position = Vector2(200, 24)
+
+[node name="StaticBody2D3" parent="Obstacle3" instance=ExtResource("12_qun3p")]
+position = Vector2(200, -24)
+
+[node name="TGLaDos" type="Sprite2D" parent="."]
+visible = false
+z_index = 1
+position = Vector2(112.994, 46.4167)
+scale = Vector2(1.04722, 1.09167)
+texture = ExtResource("12_ssln1")
+offset = Vector2(16, 80)
+script = ExtResource("13_gwdhm")
+ogname = "GLaDOS"
+
+[node name="Label" type="Label" parent="TGLaDos"]
+modulate = Color(0, 0, 0, 1)
+offset_left = 67.8043
+offset_top = 16.1068
+offset_right = 132.804
+offset_bottom = 42.1068
+text = "Count: 0"
+metadata/_edit_use_anchors_ = true
+
+[node name="TAdventureCore" type="Sprite2D" parent="."]
+visible = false
+z_index = 1
+position = Vector2(616, 168)
+scale = Vector2(0.55, 0.55)
+texture = ExtResource("13_f8o6e")
+script = ExtResource("13_gwdhm")
+ogname = "Adventure Core"
+
+[node name="Label" type="Label" parent="TAdventureCore"]
+modulate = Color(0, 0, 0, 1)
+offset_left = 72.7272
+offset_right = 137.727
+offset_bottom = 26.0
+scale = Vector2(1.43638, 1.43638)
+text = "Count: 0"
+metadata/_edit_use_anchors_ = true
+
+[node name="TWheatley" type="Sprite2D" parent="."]
+visible = false
+z_index = 1
+position = Vector2(1024, 128)
+scale = Vector2(0.55, 0.55)
+texture = ExtResource("14_jt080")
+flip_v = true
+script = ExtResource("13_gwdhm")
+ogname = "Wheatley"
+
+[node name="Label" type="Label" parent="TWheatley"]
+modulate = Color(0, 0, 0, 1)
+offset_left = -43.6364
+offset_top = -116.364
+offset_right = 21.3636
+offset_bottom = -90.3636
+scale = Vector2(1.65455, 1.65455)
+text = "Count: 0"
+metadata/_edit_use_anchors_ = true
+
+[node name="TSpaceCore" type="Sprite2D" parent="."]
+visible = false
+z_index = 1
+position = Vector2(848, 128)
+scale = Vector2(0.55, 0.55)
+texture = ExtResource("15_dg1f1")
+script = ExtResource("13_gwdhm")
+ogname = "Space Core"
+
+[node name="Label" type="Label" parent="TSpaceCore"]
+modulate = Color(0, 0, 0, 1)
+offset_left = -116.364
+offset_top = -116.364
+offset_right = -51.3637
+offset_bottom = -90.3636
+scale = Vector2(1.65455, 1.65455)
+text = "Count: 0"
+metadata/_edit_use_anchors_ = true
+
+[node name="TFactCore" type="Sprite2D" parent="."]
+visible = false
+z_index = 1
+position = Vector2(392, 152)
+scale = Vector2(0.55, 0.55)
+texture = ExtResource("16_m7h2b")
+script = ExtResource("13_gwdhm")
+ogname = "Fact Core"
+
+[node name="Label" type="Label" parent="TFactCore"]
+modulate = Color(0, 0, 0, 1)
+offset_left = -43.6364
+offset_top = -130.909
+offset_right = 21.3636
+offset_bottom = -104.909
+scale = Vector2(1.65455, 1.65455)
+text = "Count: 0"
+metadata/_edit_use_anchors_ = true
+
+[node name="TAnimalKingTurret" type="Sprite2D" parent="."]
+visible = false
+z_index = 1
+position = Vector2(95.7621, 364.6)
+rotation = -0.0208643
+scale = Vector2(1.27133, 1.39803)
+texture = ExtResource("17_i64bx")
+script = ExtResource("13_gwdhm")
+ogname = "Animal King Turret"
+
+[node name="Label" type="Label" parent="TAnimalKingTurret"]
+modulate = Color(0, 0, 0, 1)
+offset_left = 20.9743
+offset_top = -83.0232
+offset_right = 85.9743
+offset_bottom = -57.0232
+scale = Vector2(0.898939, 0.898939)
+text = "Count: 0"
+metadata/_edit_use_anchors_ = true
+
+[node name="TAtlas" type="Sprite2D" parent="."]
+visible = false
+z_index = 1
+position = Vector2(580.161, 616.685)
+rotation = -0.0872665
+scale = Vector2(0.818619, 0.818619)
+texture = ExtResource("18_3y8lk")
+script = ExtResource("13_gwdhm")
+ogname = "Atlas"
+
+[node name="Label" type="Label" parent="TAtlas"]
+modulate = Color(0, 0, 0, 1)
+offset_left = -112.446
+offset_top = -118.586
+offset_right = -47.446
+offset_bottom = -92.5865
+scale = Vector2(1.65455, 1.65455)
+text = "Count: 0"
+metadata/_edit_use_anchors_ = true
+
+[node name="TCake" type="Sprite2D" parent="."]
+visible = false
+z_index = 1
+position = Vector2(112, 616)
+scale = Vector2(0.639999, 0.639999)
+texture = ExtResource("19_71qaw")
+script = ExtResource("13_gwdhm")
+ogname = "Cake"
+
+[node name="Label" type="Label" parent="TCake"]
+modulate = Color(0, 0, 0, 1)
+offset_left = -87.5001
+offset_top = -137.5
+offset_right = -22.5001
+offset_bottom = -111.5
+scale = Vector2(1.34205, 1.34205)
+text = "Count: 0"
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="TCake/Label"]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 0
+offset_top = 15.1099
+offset_right = 65.0
+offset_bottom = 41.1099
+scale = Vector2(0.90941, 0.90941)
+text = "go bake it yourself :)"
+metadata/_edit_use_anchors_ = true
+
+[node name="TP-body" type="Sprite2D" parent="."]
+visible = false
+z_index = 1
+position = Vector2(724, 594)
+scale = Vector2(0.844444, 0.844444)
+texture = ExtResource("20_68msp")
+script = ExtResource("13_gwdhm")
+ogname = "P-body"
+
+[node name="Label" type="Label" parent="TP-body"]
+modulate = Color(0, 0, 0, 1)
+offset_left = 52.1053
+offset_top = -97.1053
+offset_right = 117.105
+offset_bottom = -71.1053
+rotation = 2.96803
+scale = Vector2(1.65455, 1.65455)
+text = "Count: 0"
+metadata/_edit_use_anchors_ = true
+
+[node name="TPotatOs" type="Sprite2D" parent="."]
+visible = false
+z_index = 1
+position = Vector2(1012, 246)
+scale = Vector2(0.360001, 0.360001)
+texture = ExtResource("21_hi2q0")
+script = ExtResource("13_gwdhm")
+ogname = "PotatOS"
+
+[node name="Label" type="Label" parent="TPotatOs"]
+modulate = Color(0, 0, 0, 1)
+offset_left = 44.4442
+offset_top = -3.05176e-05
+offset_right = 109.444
+offset_bottom = 26.0
+scale = Vector2(1.65455, 1.65455)
+text = "Count: 0"
+metadata/_edit_use_anchors_ = true
+
+[node name="TSentryTurret" type="Sprite2D" parent="."]
+visible = false
+z_index = 1
+position = Vector2(208, 632)
+rotation = 0.0872665
+scale = Vector2(0.520001, 0.520001)
+texture = ExtResource("22_7dm7q")
+flip_h = true
+script = ExtResource("13_gwdhm")
+ogname = "Sentry Turret"
+
+[node name="Label" type="Label" parent="TSentryTurret"]
+modulate = Color(0, 0, 0, 1)
+offset_left = -56.705
+offset_top = -118.586
+offset_right = 8.29505
+offset_bottom = -92.5857
+scale = Vector2(1.65455, 1.65455)
+text = "Count: 0"
+metadata/_edit_use_anchors_ = true
+
+[node name="TWeightedCube" type="Sprite2D" parent="."]
+visible = false
+z_index = 1
+position = Vector2(991, 634)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("23_hwrfk")
+script = ExtResource("13_gwdhm")
+ogname = "Weighted Cube"
+
+[node name="Label" type="Label" parent="TWeightedCube"]
+modulate = Color(0, 0, 0, 1)
+offset_left = -61.9999
+offset_top = -132.0
+offset_right = 3.00007
+offset_bottom = -106.0
+scale = Vector2(1.65455, 1.65455)
+text = "Count: 0"
+metadata/_edit_use_anchors_ = true
+
+[node name="TCompanionCube" type="Sprite2D" parent="."]
+visible = false
+z_index = 1
+position = Vector2(1078, 641)
+scale = Vector2(0.979707, 0.979707)
+texture = ExtResource("25_yp660")
+script = ExtResource("13_gwdhm")
+ogname = "Companion Cube"
+
+[node name="Label" type="Label" parent="TCompanionCube"]
+modulate = Color(0, 0, 0, 1)
+offset_left = -25.5181
+offset_top = -54.0979
+offset_right = 39.4819
+offset_bottom = -28.0979
+scale = Vector2(0.756318, 0.756318)
+text = "Count: 0"
+metadata/_edit_use_anchors_ = true
+
+[node name="TDiscouragementRedirectionCube" type="Sprite2D" parent="."]
+visible = false
+z_index = 1
+position = Vector2(344, 632)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("25_a6vw8")
+script = ExtResource("13_gwdhm")
+ogname = "Discouragement Redirection Cube"
+
+[node name="Label" type="Label" parent="TDiscouragementRedirectionCube"]
+modulate = Color(0, 0, 0, 1)
+offset_left = -48.0
+offset_top = -128.0
+offset_right = 17.0
+offset_bottom = -102.0
+scale = Vector2(1.65455, 1.65455)
+text = "Count: 0"
+metadata/_edit_use_anchors_ = true
+
+[node name="TEdgelessSafetyCube" type="Sprite2D" parent="."]
+visible = false
+z_index = 1
+position = Vector2(848, 632)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("26_0bv8t")
+script = ExtResource("13_gwdhm")
+ogname = "Edgeless Safety Cube"
+
+[node name="Label" type="Label" parent="TEdgelessSafetyCube"]
+modulate = Color(0, 0, 0, 1)
+offset_left = -48.0001
+offset_top = -128.0
+offset_right = 16.9999
+offset_bottom = -102.0
+scale = Vector2(1.65455, 1.65455)
+text = "Count: 0"
+metadata/_edit_use_anchors_ = true
+
+[node name="TOperaTurret" type="Sprite2D" parent="."]
+visible = false
+z_index = 1
+position = Vector2(213.731, 415.939)
+rotation = -0.0523599
+scale = Vector2(0.78337, 0.745004)
+texture = ExtResource("27_p30dk")
+script = ExtResource("13_gwdhm")
+ogname = "Opera Turret"
+
+[node name="Label" type="Label" parent="TOperaTurret"]
+modulate = Color(0, 0, 0, 1)
+offset_left = -9.88316
+offset_top = -150.678
+offset_right = 55.1168
+offset_bottom = -124.678
+rotation = 0.351647
+scale = Vector2(1.65455, 1.65455)
+text = "Count: 0"
+metadata/_edit_use_anchors_ = true
+
+[node name="THandheld Portal Device" type="Sprite2D" parent="."]
+visible = false
+z_index = 1
+position = Vector2(1084, 253)
+rotation = 0.901066
+scale = Vector2(0.224435, 0.224435)
+texture = ExtResource("29_nag26")
+script = ExtResource("13_gwdhm")
+ogname = "Handheld Portal Device"
+
+[node name="Label" type="Label" parent="THandheld Portal Device"]
+modulate = Color(0, 0, 0, 1)
+offset_left = -37.6851
+offset_top = -160.555
+offset_right = 27.3149
+offset_bottom = -134.555
+rotation = 0.351647
+scale = Vector2(2.49681, 2.49681)
+text = "Count: 0"
+metadata/_edit_use_anchors_ = true
+
+[node name="TLong Fall Boots" type="Sprite2D" parent="."]
+visible = false
+z_index = 1
+position = Vector2(419, 648)
+rotation = -0.0523599
+scale = Vector2(0.295654, 0.281174)
+texture = ExtResource("30_sru6t")
+script = ExtResource("13_gwdhm")
+ogname = "Long Fall Boots"
+
+[node name="Label" type="Label" parent="TLong Fall Boots"]
+modulate = Color(0, 0, 0, 1)
+offset_left = -22.0698
+offset_top = -168.73
+offset_right = 42.9302
+offset_bottom = -142.73
+rotation = 0.351647
+scale = Vector2(2.12449, 2.12449)
+text = "Count: 0"
+metadata/_edit_use_anchors_ = true
+
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2(48, 528)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(95, 67)
+shape = SubResource("RectangleShape2D_73agj")
+
+[node name="BlackWall" type="Sprite2D" parent="."]
+position = Vector2(144, 608)
+texture = ExtResource("28_oclcg")
+
+[connection signal="body_entered" from="PortalControl/Blue" to="PortalControl" method="_on_blue_body_entered"]
+[connection signal="body_exited" from="PortalControl/Blue" to="PortalControl" method="_on_blue_body_exited"]
+[connection signal="body_entered" from="PortalControl/Orange" to="PortalControl" method="_on_orange_body_entered"]
+[connection signal="body_exited" from="PortalControl/Orange" to="PortalControl" method="_on_orange_body_exited"]
+[connection signal="body_entered" from="Obstacle1/Door" to="Obstacle1/Door" method="_on_body_entered"]
+[connection signal="body_exited" from="Obstacle1/Door" to="Obstacle1/Door" method="_on_body_exited"]

@@ -1,0 +1,45 @@
+[gd_scene load_steps=10 format=3 uid="uid://jg20aef2fpib"]
+
+[ext_resource type="Script" path="res://scripts/character_body_2d.gd" id="1_516hv"]
+[ext_resource type="Texture2D" uid="uid://dd5v1sfa8wwda" path="res://sprites/chell.png" id="2_dd5w2"]
+[ext_resource type="Texture2D" uid="uid://r6fhmi0qdtjx" path="res://sprites/portal_gun_game.png" id="3_0quvt"]
+[ext_resource type="Script" path="res://scripts/flip.gd" id="3_y26fd"]
+[ext_resource type="Script" path="res://scripts/rotport.gd" id="4_ov1vp"]
+[ext_resource type="AudioStream" uid="uid://ckydrv12ruw5a" path="res://sounds/sound_weapons_portalgun_portal_enter_03.wav" id="6_goxji"]
+[ext_resource type="AudioStream" uid="uid://vcqjfjuiw2lv" path="res://sounds/sound_weapons_portalgun_portal_invalid_surface3.wav" id="7_p4cn7"]
+[ext_resource type="AudioStream" uid="uid://c61r128rjjp5w" path="res://sounds/sound_weapons_portalgun_portal_open2.wav" id="8_cs0d0"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0m6fc"]
+radius = 16.0
+height = 94.1177
+
+[node name="CharacterBody2D" type="CharacterBody2D"]
+scale = Vector2(0.85, 0.85)
+script = ExtResource("1_516hv")
+
+[node name="Chell" type="Sprite2D" parent="."]
+z_index = 3
+texture = ExtResource("2_dd5w2")
+script = ExtResource("3_y26fd")
+
+[node name="Portal Gun" type="Sprite2D" parent="Chell"]
+z_index = 3
+texture = ExtResource("3_0quvt")
+script = ExtResource("4_ov1vp")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1.61559e-27, 9.53674e-07)
+shape = SubResource("CapsuleShape2D_0m6fc")
+
+[node name="AudioPortalEnter" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_goxji")
+
+[node name="AudioPortalInvalid" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_p4cn7")
+volume_db = -2.0
+
+[node name="AudioPortalOpen" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_cs0d0")
+
+[node name="AudioPortalOpen2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_cs0d0")

@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://iurp8krt7c2j"
+path="res://.godot/imported/Portal-2-Sound-Effects-Blue-Repulsion-Gel (mp3cut.net).mp3-8290418bfde57508c069c56e5be2b7a3.mp3str"
+
+[deps]
+
+source_file="res://sounds/Portal-2-Sound-Effects-Blue-Repulsion-Gel (mp3cut.net).mp3"
+dest_files=["res://.godot/imported/Portal-2-Sound-Effects-Blue-Repulsion-Gel (mp3cut.net).mp3-8290418bfde57508c069c56e5be2b7a3.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -1,0 +1,278 @@
+[gd_scene load_steps=8 format=3 uid="uid://6sja7nuvrdai"]
+
+[ext_resource type="Script" path="res://scripts/Minigame/suicider.gd" id="1_rdun6"]
+[ext_resource type="Texture2D" uid="uid://dj6jekibefp0m" path="res://sprites/wall_contrast.png" id="1_ubfan"]
+[ext_resource type="PackedScene" uid="uid://dvlfgoagr1ojq" path="res://misc/horizontal_barrier.tscn" id="2_2la0u"]
+[ext_resource type="PackedScene" uid="uid://c7rs6gv0m3fn5" path="res://misc/minigame/floor_orange.tscn" id="3_mbbdj"]
+[ext_resource type="Script" path="res://scripts/Minigame/spinner.gd" id="4_rr15h"]
+[ext_resource type="PackedScene" uid="uid://cygmsrya4h1ke" path="res://misc/minigame/hazard_companion_cube.tscn" id="5_f6ern"]
+[ext_resource type="PackedScene" uid="uid://ddeg5qpvdxto0" path="res://misc/minigame/hazard_spikes.tscn" id="6_6owjn"]
+
+[node name="root" type="Node2D"]
+script = ExtResource("1_rdun6")
+
+[node name="MainRoom" type="ColorRect" parent="."]
+custom_minimum_size = Vector2(1280, 720)
+offset_right = 1280.0
+offset_bottom = 720.0
+pivot_offset = Vector2(348, 573)
+color = Color(1, 0, 0, 1)
+
+[node name="Sprite2D3" type="Sprite2D" parent="MainRoom"]
+position = Vector2(1280, 0)
+texture = ExtResource("1_ubfan")
+centered = false
+
+[node name="Sprite2D4" type="Sprite2D" parent="MainRoom"]
+texture = ExtResource("1_ubfan")
+centered = false
+
+[node name="Roof" parent="MainRoom" instance=ExtResource("2_2la0u")]
+layout_mode = 1
+
+[node name="Roof2" parent="MainRoom" instance=ExtResource("2_2la0u")]
+layout_mode = 1
+offset_left = 1280.0
+offset_right = 2560.0
+
+[node name="Horizontal Barrier" parent="MainRoom" instance=ExtResource("3_mbbdj")]
+layout_mode = 1
+offset_top = -48.0
+offset_bottom = 0.0
+
+[node name="Horizontal Barrier2" parent="MainRoom" instance=ExtResource("3_mbbdj")]
+layout_mode = 1
+offset_left = 1280.0
+offset_top = -48.0
+offset_right = 2560.0
+offset_bottom = 0.0
+
+[node name="Companion_Spike" type="Node2D" parent="."]
+position = Vector2(200, 112)
+scale = Vector2(0.963314, 0.963314)
+script = ExtResource("4_rr15h")
+number = 0
+max_height = 600
+min_height = 0
+max_width = 850
+min_width = 500
+speed_height = 0.75
+speed_width = 0.0
+
+[node name="Area2D" parent="Companion_Spike" instance=ExtResource("5_f6ern")]
+position = Vector2(2.09637, 7.62939e-06)
+scale = Vector2(2, 2)
+
+[node name="Area2D4" parent="Companion_Spike" instance=ExtResource("6_6owjn")]
+position = Vector2(2.07616, 93.1931)
+rotation = 3.14159
+
+[node name="Area2D33" parent="Companion_Spike" instance=ExtResource("5_f6ern")]
+position = Vector2(2040.89, 0)
+scale = Vector2(2, 2)
+
+[node name="Area2D34" parent="Companion_Spike" instance=ExtResource("6_6owjn")]
+position = Vector2(2040.87, 93.1931)
+rotation = 3.14159
+
+[node name="Area2D35" parent="Companion_Spike" instance=ExtResource("5_f6ern")]
+position = Vector2(2165.46, 0)
+scale = Vector2(2, 2)
+
+[node name="Area2D36" parent="Companion_Spike" instance=ExtResource("6_6owjn")]
+position = Vector2(2165.44, 93.1931)
+rotation = 3.14159
+
+[node name="Area2D37" parent="Companion_Spike" instance=ExtResource("5_f6ern")]
+position = Vector2(2290.03, 0)
+scale = Vector2(2, 2)
+
+[node name="Area2D38" parent="Companion_Spike" instance=ExtResource("6_6owjn")]
+position = Vector2(2290.01, 93.1931)
+rotation = 3.14159
+
+[node name="Area2D2" parent="Companion_Spike" instance=ExtResource("5_f6ern")]
+position = Vector2(130.819, 7.62939e-05)
+scale = Vector2(2, 2)
+
+[node name="Area2D5" parent="Companion_Spike" instance=ExtResource("6_6owjn")]
+position = Vector2(130.798, 93.1932)
+rotation = 3.14159
+
+[node name="Area2D3" parent="Companion_Spike" instance=ExtResource("5_f6ern")]
+position = Vector2(255.389, 6.86646e-05)
+scale = Vector2(2, 2)
+
+[node name="Area2D6" parent="Companion_Spike" instance=ExtResource("6_6owjn")]
+position = Vector2(255.368, 93.1932)
+rotation = 3.14159
+
+[node name="Area2D7" parent="Companion_Spike" instance=ExtResource("5_f6ern")]
+position = Vector2(384.111, 0.000137329)
+scale = Vector2(2, 2)
+
+[node name="Area2D8" parent="Companion_Spike" instance=ExtResource("6_6owjn")]
+position = Vector2(384.091, 93.1933)
+rotation = 3.14159
+
+[node name="Area2D9" parent="Companion_Spike" instance=ExtResource("5_f6ern")]
+position = Vector2(512.833, 0)
+scale = Vector2(2, 2)
+
+[node name="Area2D10" parent="Companion_Spike" instance=ExtResource("6_6owjn")]
+position = Vector2(512.813, 93.1931)
+rotation = 3.14159
+
+[node name="Area2D11" parent="Companion_Spike" instance=ExtResource("5_f6ern")]
+position = Vector2(641.556, 6.86646e-05)
+scale = Vector2(2, 2)
+
+[node name="Area2D12" parent="Companion_Spike" instance=ExtResource("6_6owjn")]
+position = Vector2(641.535, 93.1932)
+rotation = 3.14159
+
+[node name="Area2D13" parent="Companion_Spike" instance=ExtResource("5_f6ern")]
+position = Vector2(766.126, 6.10352e-05)
+scale = Vector2(2, 2)
+
+[node name="Area2D14" parent="Companion_Spike" instance=ExtResource("6_6owjn")]
+position = Vector2(766.105, 93.1932)
+rotation = 3.14159
+
+[node name="Area2D15" parent="Companion_Spike" instance=ExtResource("5_f6ern")]
+position = Vector2(894.848, 0.0001297)
+scale = Vector2(2, 2)
+
+[node name="Area2D16" parent="Companion_Spike" instance=ExtResource("6_6owjn")]
+position = Vector2(894.828, 93.1933)
+rotation = 3.14159
+
+[node name="Area2D17" parent="Companion_Spike" instance=ExtResource("5_f6ern")]
+position = Vector2(1019.42, 7.62939e-06)
+scale = Vector2(2, 2)
+
+[node name="Area2D18" parent="Companion_Spike" instance=ExtResource("6_6owjn")]
+position = Vector2(1019.4, 93.1931)
+rotation = 3.14159
+
+[node name="Area2D19" parent="Companion_Spike" instance=ExtResource("5_f6ern")]
+position = Vector2(1148.14, 7.62939e-05)
+scale = Vector2(2, 2)
+
+[node name="Area2D20" parent="Companion_Spike" instance=ExtResource("6_6owjn")]
+position = Vector2(1148.12, 93.1932)
+rotation = 3.14159
+
+[node name="Area2D21" parent="Companion_Spike" instance=ExtResource("5_f6ern")]
+position = Vector2(1272.71, 6.86646e-05)
+scale = Vector2(2, 2)
+
+[node name="Area2D22" parent="Companion_Spike" instance=ExtResource("6_6owjn")]
+position = Vector2(1272.69, 93.1932)
+rotation = 3.14159
+
+[node name="Area2D23" parent="Companion_Spike" instance=ExtResource("5_f6ern")]
+position = Vector2(1401.43, 0.000137329)
+scale = Vector2(2, 2)
+
+[node name="Area2D24" parent="Companion_Spike" instance=ExtResource("6_6owjn")]
+position = Vector2(1401.41, 93.1933)
+rotation = 3.14159
+
+[node name="Area2D25" parent="Companion_Spike" instance=ExtResource("5_f6ern")]
+position = Vector2(1530.15, 0)
+scale = Vector2(2, 2)
+
+[node name="Area2D26" parent="Companion_Spike" instance=ExtResource("6_6owjn")]
+position = Vector2(1530.13, 93.1932)
+rotation = 3.14159
+
+[node name="Area2D27" parent="Companion_Spike" instance=ExtResource("5_f6ern")]
+position = Vector2(1658.88, 6.86646e-05)
+scale = Vector2(2, 2)
+
+[node name="Area2D28" parent="Companion_Spike" instance=ExtResource("6_6owjn")]
+position = Vector2(1658.86, 93.1932)
+rotation = 3.14159
+
+[node name="Area2D29" parent="Companion_Spike" instance=ExtResource("5_f6ern")]
+position = Vector2(1783.45, 6.10352e-05)
+scale = Vector2(2, 2)
+
+[node name="Area2D30" parent="Companion_Spike" instance=ExtResource("6_6owjn")]
+position = Vector2(1783.43, 93.1932)
+rotation = 3.14159
+
+[node name="Area2D31" parent="Companion_Spike" instance=ExtResource("5_f6ern")]
+position = Vector2(1912.17, 0.0001297)
+scale = Vector2(2, 2)
+
+[node name="Area2D32" parent="Companion_Spike" instance=ExtResource("6_6owjn")]
+position = Vector2(1912.15, 93.1933)
+rotation = 3.14159
+
+[node name="Obstacle_2" type="Node2D" parent="."]
+position = Vector2(2000, 640)
+
+[node name="Area2D6" parent="Obstacle_2" instance=ExtResource("5_f6ern")]
+position = Vector2(-0.00012207, 0)
+
+[node name="Area2D7" parent="Obstacle_2" instance=ExtResource("5_f6ern")]
+position = Vector2(80, 0)
+
+[node name="Area2D8" parent="Obstacle_2" instance=ExtResource("5_f6ern")]
+position = Vector2(152, 0)
+
+[node name="Area2D9" parent="Obstacle_2" instance=ExtResource("5_f6ern")]
+position = Vector2(216, 0)
+
+[node name="Area2D10" parent="Obstacle_2" instance=ExtResource("5_f6ern")]
+position = Vector2(320, 0)
+
+[node name="Area2D11" parent="Obstacle_2" instance=ExtResource("5_f6ern")]
+position = Vector2(272, -56)
+rotation = -0.785398
+
+[node name="Area2D12" parent="Obstacle_2" instance=ExtResource("5_f6ern")]
+position = Vector2(40, -72)
+rotation = -0.785398
+
+[node name="Area2D13" parent="Obstacle_2" instance=ExtResource("5_f6ern")]
+position = Vector2(120, -64)
+
+[node name="Area2D14" parent="Obstacle_2" instance=ExtResource("5_f6ern")]
+position = Vector2(200, -80)
+rotation = 0.523599
+
+[node name="Area2D15" parent="Obstacle_2" instance=ExtResource("5_f6ern")]
+position = Vector2(144, -136)
+rotation = -0.261799
+
+[node name="Area2D16" parent="Obstacle_2" instance=ExtResource("5_f6ern")]
+position = Vector2(64, -144)
+rotation = 0.523599
+
+[node name="Obstacle_4" type="Node2D" parent="."]
+position = Vector2(1832, 480)
+script = ExtResource("4_rr15h")
+number = 0
+min_height = 9
+max_width = 1832
+min_width = 250
+speed_height = 0.0
+
+[node name="Area2D" parent="Obstacle_4" instance=ExtResource("5_f6ern")]
+position = Vector2(0.0202637, 128)
+scale = Vector2(2, 2)
+
+[node name="Area2D4" parent="Obstacle_4" instance=ExtResource("6_6owjn")]
+position = Vector2(-96, 128)
+rotation = 4.71239
+
+[node name="Area2D2" parent="Obstacle_4" instance=ExtResource("5_f6ern")]
+position = Vector2(0.0202637, 0)
+scale = Vector2(2, 2)
+
+[node name="Area2D5" parent="Obstacle_4" instance=ExtResource("6_6owjn")]
+position = Vector2(-96, 0)
+rotation = 4.71239

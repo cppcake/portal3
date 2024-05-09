@@ -1,0 +1,271 @@
+[gd_scene load_steps=18 format=3 uid="uid://di43h2b1phwgx"]
+
+[ext_resource type="PackedScene" uid="uid://jg20aef2fpib" path="res://misc/Player.tscn" id="1_8pj75"]
+[ext_resource type="Texture2D" uid="uid://deqtl1mn6wcvc" path="res://sprites/wall.png" id="2_j8tn8"]
+[ext_resource type="PackedScene" uid="uid://dvlfgoagr1ojq" path="res://misc/horizontal_barrier.tscn" id="3_ny7yq"]
+[ext_resource type="PackedScene" uid="uid://cd16ap2lovc83" path="res://misc/vertical_barrier.tscn" id="4_rqjef"]
+[ext_resource type="AudioStream" uid="uid://bsjt6eh77rx4b" path="res://sounds/Portal-2-OST-Volume-2-Halls-Of-Science-4.mp3" id="5_inlrr"]
+[ext_resource type="PackedScene" uid="uid://btcwsaquo11g7" path="res://misc/door.tscn" id="6_armu2"]
+[ext_resource type="Script" path="res://scripts/chellplacer.gd" id="6_uwpnt"]
+[ext_resource type="PackedScene" uid="uid://b5rirxeymhkom" path="res://misc/block.tscn" id="7_w3752"]
+[ext_resource type="Texture2D" uid="uid://cx5uhuyetojxj" path="res://sprites/logo_transparent.png" id="8_3ie35"]
+[ext_resource type="Script" path="res://scripts/portal_logic.gd" id="9_oef8l"]
+[ext_resource type="PackedScene" uid="uid://6180x1ut1c5g" path="res://misc/portal.tscn" id="10_y0xav"]
+[ext_resource type="Texture2D" uid="uid://7ii2ch1sfwok" path="res://sprites/blue_portal.png" id="11_amwtv"]
+[ext_resource type="Texture2D" uid="uid://bccb3lmtkyn86" path="res://sprites/orange_portal.png" id="12_koo8f"]
+[ext_resource type="Script" path="res://scripts/ServerCom/player_info_update.gd" id="13_u2om2"]
+[ext_resource type="Script" path="res://scripts/ServerCom/cake_holder.gd" id="14_l0nh6"]
+[ext_resource type="Script" path="res://scripts/ServerCom/high_score.gd" id="16_tavcn"]
+[ext_resource type="Texture2D" uid="uid://dihubvwhduia4" path="res://sprites/ana.png" id="16_vb8hq"]
+
+[node name="root" type="Node2D"]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+custom_minimum_size = Vector2(1280, 720)
+offset_right = 1280.0
+offset_bottom = 720.0
+pivot_offset = Vector2(348, 573)
+color = Color(1, 0, 0, 1)
+
+[node name="Sprite2D" type="Sprite2D" parent="ColorRect"]
+texture = ExtResource("2_j8tn8")
+centered = false
+
+[node name="Floor" parent="ColorRect" instance=ExtResource("3_ny7yq")]
+layout_mode = 0
+anchors_preset = 0
+anchor_top = 0.0
+anchor_bottom = 0.0
+offset_top = 672.0
+offset_bottom = 720.0
+grow_vertical = 1
+
+[node name="Roof" parent="ColorRect" instance=ExtResource("3_ny7yq")]
+layout_mode = 1
+
+[node name="Wall-Left" parent="ColorRect" instance=ExtResource("4_rqjef")]
+layout_mode = 1
+offset_left = 1232.0
+offset_top = -672.0
+offset_right = 1280.0
+offset_bottom = -48.0
+
+[node name="Wall-Right" parent="ColorRect" instance=ExtResource("4_rqjef")]
+layout_mode = 1
+offset_top = -672.0
+offset_bottom = -48.0
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="ColorRect"]
+stream = ExtResource("5_inlrr")
+autoplay = true
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(184, 104)
+texture = ExtResource("8_3ie35")
+script = ExtResource("6_uwpnt")
+
+[node name="Player" parent="." instance=ExtResource("1_8pj75")]
+position = Vector2(608, 632)
+
+[node name="PortalControl" type="Node2D" parent="."]
+script = ExtResource("9_oef8l")
+
+[node name="Test" parent="PortalControl" instance=ExtResource("10_y0xav")]
+position = Vector2(-64, 0)
+
+[node name="Orange" parent="PortalControl" instance=ExtResource("10_y0xav")]
+visible = false
+position = Vector2(-184, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="PortalControl/Orange"]
+texture = ExtResource("12_koo8f")
+
+[node name="Blue" parent="PortalControl" instance=ExtResource("10_y0xav")]
+visible = false
+position = Vector2(-128, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="PortalControl/Blue"]
+texture = ExtResource("11_amwtv")
+
+[node name="Obstacle1" type="Node2D" parent="."]
+position = Vector2(0, 48)
+
+[node name="Door" parent="Obstacle1" instance=ExtResource("6_armu2")]
+position = Vector2(1160, 208)
+placer_enabled = true
+place = 3
+path = "res://level/Shop.tscn"
+
+[node name="Label" type="Label" parent="Obstacle1/Door"]
+modulate = Color(0, 0, 0, 1)
+offset_left = -40.0
+offset_top = -88.0
+offset_right = 38.0
+offset_bottom = -62.0
+text = "SHOP
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="StaticBody2D" parent="Obstacle1" groups=["PortalForbidden"] instance=ExtResource("7_w3752")]
+position = Vector2(1208, 296)
+
+[node name="StaticBody2D2" parent="Obstacle1" groups=["PortalForbidden"] instance=ExtResource("7_w3752")]
+position = Vector2(1160, 296)
+
+[node name="StaticBody2D3" parent="Obstacle1" groups=["PortalForbidden"] instance=ExtResource("7_w3752")]
+position = Vector2(1112, 296)
+
+[node name="StaticBody2D4" parent="Obstacle1" groups=["PortalForbidden"] instance=ExtResource("7_w3752")]
+position = Vector2(1064, 296)
+
+[node name="StaticBody2D5" parent="Obstacle1" groups=["PortalForbidden"] instance=ExtResource("7_w3752")]
+position = Vector2(1016, 296)
+
+[node name="Obstacle2" type="Node2D" parent="."]
+position = Vector2(-944, 200)
+
+[node name="Door" parent="Obstacle2" groups=["PortalForbidden"] instance=ExtResource("6_armu2")]
+position = Vector2(1056, 208)
+placer_enabled = true
+place = 1
+path = "res://level/Inventory.tscn"
+
+[node name="Label" type="Label" parent="Obstacle2/Door"]
+modulate = Color(0, 0, 0, 1)
+offset_left = -56.0
+offset_top = -88.0
+offset_right = 61.0
+offset_bottom = -62.0
+text = "INVENTORY"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="StaticBody2D" parent="Obstacle2" groups=["PortalForbidden"] instance=ExtResource("7_w3752")]
+position = Vector2(1208, 296)
+
+[node name="StaticBody2D2" parent="Obstacle2" groups=["PortalForbidden"] instance=ExtResource("7_w3752")]
+position = Vector2(1160, 296)
+
+[node name="StaticBody2D3" parent="Obstacle2" groups=["PortalForbidden"] instance=ExtResource("7_w3752")]
+position = Vector2(1112, 296)
+
+[node name="StaticBody2D4" parent="Obstacle2" groups=["PortalForbidden"] instance=ExtResource("7_w3752")]
+position = Vector2(1064, 296)
+
+[node name="StaticBody2D5" parent="Obstacle2" groups=["PortalForbidden"] instance=ExtResource("7_w3752")]
+position = Vector2(1016, 296)
+
+[node name="StaticBody2D6" parent="Obstacle2" groups=["PortalForbidden"] instance=ExtResource("7_w3752")]
+position = Vector2(1256, 296)
+
+[node name="Obstacle3" type="Node2D" parent="."]
+position = Vector2(-552, -72)
+
+[node name="Door" parent="Obstacle3" groups=["PortalForbidden"] instance=ExtResource("6_armu2")]
+position = Vector2(1136, 208)
+placer_enabled = true
+place = 2
+path = "res://level/Minigame.tscn"
+
+[node name="Label" type="Label" parent="Obstacle3/Door"]
+modulate = Color(0, 0, 0, 1)
+offset_left = -40.0
+offset_top = -88.0
+offset_right = 37.0
+offset_bottom = -62.0
+text = "Minigame"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="StaticBody2D" parent="Obstacle3" groups=["PortalForbidden"] instance=ExtResource("7_w3752")]
+position = Vector2(1208, 296)
+
+[node name="StaticBody2D2" parent="Obstacle3" groups=["PortalForbidden"] instance=ExtResource("7_w3752")]
+position = Vector2(1160, 296)
+
+[node name="StaticBody2D3" parent="Obstacle3" groups=["PortalForbidden"] instance=ExtResource("7_w3752")]
+position = Vector2(1112, 296)
+
+[node name="StaticBody2D4" parent="Obstacle3" groups=["PortalForbidden"] instance=ExtResource("7_w3752")]
+position = Vector2(1256, 296)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="CenterContainer" type="CenterContainer" parent="CanvasLayer"]
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 916.0
+offset_top = 48.0
+offset_right = -44.0
+offset_bottom = 104.0
+grow_horizontal = 2
+
+[node name="player_info" type="VBoxContainer" parent="CanvasLayer/CenterContainer"]
+layout_mode = 2
+script = ExtResource("13_u2om2")
+
+[node name="ID" type="Label" parent="CanvasLayer/CenterContainer/player_info"]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 2
+text = "Name:
+Companion Dollars:"
+
+[node name="server_stats" type="VBoxContainer" parent="."]
+offset_left = 56.0
+offset_top = 152.0
+offset_right = 472.0
+offset_bottom = 208.0
+
+[node name="cake" type="Label" parent="server_stats"]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 2
+text = "Current Cake Holder: "
+clip_text = true
+script = ExtResource("14_l0nh6")
+
+[node name="score" type="Label" parent="server_stats"]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 2
+text = "Server Top-Score: "
+clip_text = true
+script = ExtResource("16_tavcn")
+
+[node name="Door" parent="." groups=["PortalForbidden"] instance=ExtResource("6_armu2")]
+position = Vector2(1112, 608)
+placer_enabled = true
+place = 0
+path = "res://level/Auth.tscn"
+
+[node name="Label" type="Label" parent="Door"]
+modulate = Color(0, 0, 0, 1)
+offset_left = -32.0
+offset_top = -88.0
+offset_right = 35.0
+offset_bottom = -62.0
+text = "Logout"
+horizontal_alignment = 1
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+position = Vector2(616, 812)
+texture = ExtResource("16_vb8hq")
+
+[node name="Label" type="Label" parent="Sprite2D2"]
+offset_left = -180.0
+offset_top = 61.0
+offset_right = 145.0
+offset_bottom = 87.0
+text = "In fünf Tagen schreibe ich Ana btw ~ Afeef"
+
+[connection signal="body_entered" from="PortalControl/Orange" to="PortalControl" method="_on_orange_body_entered"]
+[connection signal="body_exited" from="PortalControl/Orange" to="PortalControl" method="_on_orange_body_exited"]
+[connection signal="body_entered" from="PortalControl/Blue" to="PortalControl" method="_on_blue_body_entered"]
+[connection signal="body_exited" from="PortalControl/Blue" to="PortalControl" method="_on_blue_body_exited"]
+[connection signal="body_entered" from="Obstacle1/Door" to="Obstacle1/Door" method="_on_body_entered"]
+[connection signal="body_exited" from="Obstacle1/Door" to="Obstacle1/Door" method="_on_body_exited"]
+[connection signal="body_entered" from="Obstacle2/Door" to="Obstacle2/Door" method="_on_body_entered"]
+[connection signal="body_exited" from="Obstacle2/Door" to="Obstacle2/Door" method="_on_body_exited"]
+[connection signal="body_entered" from="Obstacle3/Door" to="Obstacle3/Door" method="_on_body_entered"]
+[connection signal="body_exited" from="Obstacle3/Door" to="Obstacle3/Door" method="_on_body_exited"]
+[connection signal="body_entered" from="Door" to="Door" method="_on_body_entered"]
+[connection signal="body_exited" from="Door" to="Door" method="_on_body_exited"]

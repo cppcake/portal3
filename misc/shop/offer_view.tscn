@@ -1,0 +1,37 @@
+[gd_scene load_steps=3 format=3 uid="uid://7n0bqut0fp3e"]
+
+[ext_resource type="Script" path="res://scripts/Shop/offer_view.gd" id="1_5cw10"]
+[ext_resource type="Script" path="res://scripts/Shop/Buy.gd" id="1_uiwr7"]
+
+[node name="OfferView" type="HBoxContainer"]
+script = ExtResource("1_5cw10")
+metadata/oh = 0
+metadata/name = ""
+metadata/count = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="Buy" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "                  BUY                 "
+script = ExtResource("1_uiwr7")
+
+[node name="sign" type="Label" parent="VBoxContainer"]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 2
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="Seller" type="Label" parent="VBoxContainer2"]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 2
+text = "Seller: Aperture Shop"
+
+[node name="Count" type="Label" parent="VBoxContainer2"]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 2
+text = "Count: X"
+
+[connection signal="pressed" from="VBoxContainer/Buy" to="VBoxContainer/Buy" method="_on_pressed"]

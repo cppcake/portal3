@@ -1,0 +1,311 @@
+[gd_scene load_steps=27 format=3 uid="uid://cy0ovnmp25o5y"]
+
+[ext_resource type="Texture2D" uid="uid://deqtl1mn6wcvc" path="res://sprites/wall.png" id="1_ix23b"]
+[ext_resource type="PackedScene" uid="uid://dvlfgoagr1ojq" path="res://misc/horizontal_barrier.tscn" id="2_k3jm8"]
+[ext_resource type="PackedScene" uid="uid://cd16ap2lovc83" path="res://misc/vertical_barrier.tscn" id="3_efusd"]
+[ext_resource type="Texture2D" uid="uid://dj6jekibefp0m" path="res://sprites/wall_contrast.png" id="4_los3h"]
+[ext_resource type="PackedScene" uid="uid://c7rs6gv0m3fn5" path="res://misc/minigame/floor_orange.tscn" id="5_j41gj"]
+[ext_resource type="PackedScene" uid="uid://jg20aef2fpib" path="res://misc/Player.tscn" id="6_kpg8w"]
+[ext_resource type="Script" path="res://scripts/Minigame/character_body_2d_minigane.gd" id="7_5qjr2"]
+[ext_resource type="PackedScene" uid="uid://6180x1ut1c5g" path="res://misc/portal.tscn" id="8_iq2qf"]
+[ext_resource type="AudioStream" uid="uid://dkksqakcmxglf" path="res://sounds/music/minigame_music_1.mp3" id="8_qv2y3"]
+[ext_resource type="Texture2D" uid="uid://bccb3lmtkyn86" path="res://sprites/orange_portal.png" id="9_23j5m"]
+[ext_resource type="Script" path="res://scripts/Minigame/portal_logic_minigame.gd" id="9_jtyhl"]
+[ext_resource type="AudioStream" uid="uid://iurp8krt7c2j" path="res://sounds/Portal-2-Sound-Effects-Blue-Repulsion-Gel (mp3cut.net).mp3" id="9_xeulw"]
+[ext_resource type="Texture2D" uid="uid://7ii2ch1sfwok" path="res://sprites/blue_portal.png" id="10_ih04e"]
+[ext_resource type="PackedScene" uid="uid://btcwsaquo11g7" path="res://misc/door.tscn" id="11_sdsuk"]
+[ext_resource type="PackedScene" uid="uid://b5rirxeymhkom" path="res://misc/block.tscn" id="12_fg4j3"]
+[ext_resource type="Script" path="res://scripts/Camera2D.gd" id="12_s11ik"]
+[ext_resource type="PackedScene" uid="uid://b6os6ru8aiynv" path="res://misc/minigame/help_ground_jump.tscn" id="16_du1xt"]
+[ext_resource type="Script" path="res://scripts/Minigame/new_section_placer.gd" id="16_i83dx"]
+[ext_resource type="Script" path="res://scripts/Minigame/gameover_handler.gd" id="19_nsrrb"]
+[ext_resource type="Texture2D" uid="uid://fgc43yf5snyj" path="res://sprites/Transparent_Shop_Icons/T_P-body.png" id="20_gjwde"]
+[ext_resource type="Texture2D" uid="uid://d1ax2yaxfa1dn" path="res://sprites/Transparent_Shop_Icons/T_No_Cake.png" id="21_3jd5n"]
+[ext_resource type="Texture2D" uid="uid://gdiixqow0ji8" path="res://sprites/Transparent_Shop_Icons/T_Atlas.png" id="21_gdaae"]
+[ext_resource type="Script" path="res://scripts/ServerCom/player_info_update.gd" id="22_82gml"]
+[ext_resource type="Texture2D" uid="uid://dntivvdknobc" path="res://sprites/meme.png" id="23_f80x8"]
+[ext_resource type="Texture2D" uid="uid://dyho3h4pntrg3" path="res://sprites/Transparent_Shop_Icons/T_Space_Core.png" id="24_mngsn"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_m12fr"]
+size = Vector2(1272, 624)
+
+[node name="root" type="Node2D"]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+custom_minimum_size = Vector2(1280, 720)
+offset_right = 1280.0
+offset_bottom = 720.0
+pivot_offset = Vector2(348, 573)
+color = Color(1, 0, 0, 1)
+
+[node name="Sprite2D" type="Sprite2D" parent="ColorRect"]
+texture = ExtResource("1_ix23b")
+centered = false
+
+[node name="Sprite2D2" type="Sprite2D" parent="ColorRect"]
+texture = ExtResource("1_ix23b")
+centered = false
+
+[node name="Floor" parent="ColorRect" instance=ExtResource("2_k3jm8")]
+layout_mode = 0
+anchors_preset = 0
+anchor_top = 0.0
+anchor_bottom = 0.0
+offset_top = 672.0
+offset_bottom = 720.0
+grow_vertical = 1
+
+[node name="Roof" parent="ColorRect" instance=ExtResource("2_k3jm8")]
+layout_mode = 1
+
+[node name="Wall-Right" parent="ColorRect" instance=ExtResource("3_efusd")]
+layout_mode = 1
+offset_top = -672.0
+offset_bottom = -48.0
+
+[node name="Sprite2D3" type="Sprite2D" parent="ColorRect"]
+position = Vector2(1280, 0)
+texture = ExtResource("4_los3h")
+centered = false
+
+[node name="Roof2" parent="ColorRect" instance=ExtResource("2_k3jm8")]
+layout_mode = 1
+offset_left = 1280.0
+offset_right = 2560.0
+
+[node name="Horizontal Barrier" parent="ColorRect" instance=ExtResource("5_j41gj")]
+layout_mode = 1
+offset_left = 1280.0
+offset_top = -48.0
+offset_right = 2560.0
+offset_bottom = 0.0
+
+[node name="Label" type="Label" parent="ColorRect"]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 0
+offset_left = 1192.0
+offset_top = 224.0
+offset_right = 1274.0
+offset_bottom = 250.0
+text = "CAKE!!! --->"
+
+[node name="Player" parent="." instance=ExtResource("6_kpg8w")]
+position = Vector2(216, 432)
+script = ExtResource("7_5qjr2")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Player"]
+process_mode = 3
+scale = Vector2(1.17647, 1.17647)
+stream = ExtResource("8_qv2y3")
+autoplay = true
+
+[node name="gel" type="AudioStreamPlayer2D" parent="Player"]
+scale = Vector2(1.17647, 1.17647)
+stream = ExtResource("9_xeulw")
+volume_db = 10.0
+
+[node name="PortalControl" type="Node2D" parent="."]
+script = ExtResource("9_jtyhl")
+maximum_portal_overlap = 2.0
+step_size = 5
+
+[node name="Test" parent="PortalControl" instance=ExtResource("8_iq2qf")]
+position = Vector2(-64, 0)
+
+[node name="Orange" parent="PortalControl" instance=ExtResource("8_iq2qf")]
+visible = false
+position = Vector2(-184, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="PortalControl/Orange"]
+texture = ExtResource("9_23j5m")
+
+[node name="Blue" parent="PortalControl" instance=ExtResource("8_iq2qf")]
+visible = false
+position = Vector2(-128, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="PortalControl/Blue"]
+texture = ExtResource("10_ih04e")
+
+[node name="Obstacle" type="Node2D" parent="."]
+position = Vector2(-944, 200)
+
+[node name="Door" parent="Obstacle" groups=["PortalForbidden"] instance=ExtResource("11_sdsuk")]
+position = Vector2(1056, 208)
+path = "res://level/Hub.tscn"
+
+[node name="Label" type="Label" parent="Obstacle/Door"]
+modulate = Color(0, 0, 0, 1)
+offset_left = -56.0
+offset_top = -88.0
+offset_right = 61.0
+offset_bottom = -62.0
+text = "HUB"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="StaticBody2D" parent="Obstacle" groups=["PortalForbidden"] instance=ExtResource("12_fg4j3")]
+position = Vector2(1208, 296)
+
+[node name="StaticBody2D2" parent="Obstacle" groups=["PortalForbidden"] instance=ExtResource("12_fg4j3")]
+position = Vector2(1160, 296)
+
+[node name="StaticBody2D3" parent="Obstacle" groups=["PortalForbidden"] instance=ExtResource("12_fg4j3")]
+position = Vector2(1112, 296)
+
+[node name="StaticBody2D4" parent="Obstacle" groups=["PortalForbidden"] instance=ExtResource("12_fg4j3")]
+position = Vector2(1064, 296)
+
+[node name="StaticBody2D5" parent="Obstacle" groups=["PortalForbidden"] instance=ExtResource("12_fg4j3")]
+position = Vector2(1016, 296)
+
+[node name="StaticBody2D6" parent="Obstacle" groups=["PortalForbidden"] instance=ExtResource("12_fg4j3")]
+position = Vector2(1256, 296)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+anchor_mode = 0
+script = ExtResource("12_s11ik")
+
+[node name="Label" type="Label" parent="Camera2D"]
+modulate = Color(0, 0, 0, 1)
+z_index = 3
+offset_left = 640.0
+offset_top = 100.0
+offset_right = 690.0
+offset_bottom = 131.0
+theme_override_font_sizes/font_size = 20
+text = "0000"
+
+[node name="help_block_jump" parent="." instance=ExtResource("16_du1xt")]
+position = Vector2(792, 696)
+
+[node name="help_block_jump2" parent="." instance=ExtResource("16_du1xt")]
+position = Vector2(840, 696)
+
+[node name="help_block_jump3" parent="." instance=ExtResource("16_du1xt")]
+position = Vector2(744, 696)
+
+[node name="new_section_placer" type="Area2D" parent="."]
+position = Vector2(1280, 360)
+script = ExtResource("16_i83dx")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="new_section_placer"]
+position = Vector2(644, 0)
+shape = SubResource("RectangleShape2D_m12fr")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Gameover" type="Control" parent="CanvasLayer"]
+process_mode = 3
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("19_nsrrb")
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer/Gameover"]
+modulate = Color(0.752941, 0.0666667, 0.0823529, 0.486275)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/Gameover"]
+position = Vector2(312, 582)
+texture = ExtResource("20_gjwde")
+flip_h = true
+
+[node name="Label" type="Label" parent="CanvasLayer/Gameover/Sprite2D"]
+offset_left = -264.0
+offset_top = -96.0
+offset_right = -50.0
+offset_bottom = -73.0
+theme_override_font_sizes/font_size = 10
+text = "If you keep dying GLaDOS might replace you"
+metadata/_edit_use_anchors_ = true
+
+[node name="Sprite2D3" type="Sprite2D" parent="CanvasLayer/Gameover"]
+position = Vector2(144, 596)
+texture = ExtResource("21_gdaae")
+
+[node name="Sprite2D2" type="Sprite2D" parent="CanvasLayer/Gameover"]
+position = Vector2(632, 576)
+texture = ExtResource("21_3jd5n")
+
+[node name="CenterContainer" type="CenterContainer" parent="CanvasLayer/Gameover"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Gameover/CenterContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/Gameover/CenterContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "Score: 222232 (still no cake)"
+horizontal_alignment = 1
+
+[node name="Control" type="Control" parent="CanvasLayer/Gameover/CenterContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Try Again" type="Button" parent="CanvasLayer/Gameover/CenterContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "Try Again"
+
+[node name="Back HUB" type="Button" parent="CanvasLayer/Gameover/CenterContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "Back to HUB"
+
+[node name="Quit" type="Button" parent="CanvasLayer/Gameover/CenterContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "i hate this stupid game"
+
+[node name="Label2" type="Label" parent="CanvasLayer/Gameover/CenterContainer/VBoxContainer"]
+layout_mode = 2
+text = "Try maximizing the screen for ez-mode
+(the game is not optimised for it though)"
+horizontal_alignment = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = 5
+position = Vector2(616, 808)
+texture = ExtResource("23_f80x8")
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+position = Vector2(1264, 976)
+texture = ExtResource("24_mngsn")
+
+[node name="player_info" type="VBoxContainer" parent="."]
+offset_left = 56.0
+offset_top = 48.0
+offset_right = 209.0
+offset_bottom = 100.0
+script = ExtResource("22_82gml")
+
+[node name="ID" type="Label" parent="player_info"]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 2
+text = "Name:
+Companion Dollars:"
+
+[connection signal="body_entered" from="PortalControl/Orange" to="PortalControl" method="_on_orange_body_entered"]
+[connection signal="body_exited" from="PortalControl/Orange" to="PortalControl" method="_on_orange_body_exited"]
+[connection signal="body_entered" from="PortalControl/Blue" to="PortalControl" method="_on_blue_body_entered"]
+[connection signal="body_exited" from="PortalControl/Blue" to="PortalControl" method="_on_blue_body_exited"]
+[connection signal="body_entered" from="Obstacle/Door" to="Obstacle/Door" method="_on_body_entered"]
+[connection signal="body_exited" from="Obstacle/Door" to="Obstacle/Door" method="_on_body_exited"]
+[connection signal="body_entered" from="new_section_placer" to="new_section_placer" method="_on_body_entered"]
+[connection signal="pressed" from="CanvasLayer/Gameover/CenterContainer/VBoxContainer/Try Again" to="CanvasLayer/Gameover" method="_on_try_again_pressed"]
+[connection signal="pressed" from="CanvasLayer/Gameover/CenterContainer/VBoxContainer/Back HUB" to="CanvasLayer/Gameover" method="_on_back_hub_pressed"]
+[connection signal="pressed" from="CanvasLayer/Gameover/CenterContainer/VBoxContainer/Quit" to="CanvasLayer/Gameover" method="_on_quit_pressed"]

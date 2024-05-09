@@ -1,0 +1,122 @@
+[gd_scene load_steps=9 format=3 uid="uid://dbsbxffl8wvya"]
+
+[ext_resource type="Texture2D" uid="uid://deqtl1mn6wcvc" path="res://sprites/wall.png" id="1_np8mq"]
+[ext_resource type="Script" path="res://scripts/ButtonReturn.gd" id="2_3xnos"]
+[ext_resource type="Texture2D" uid="uid://c8nfbmo2wmpsc" path="res://sprites/Shop_Icons/0.png" id="3_e8euo"]
+[ext_resource type="Script" path="res://scripts/Shop/spritepicker.gd" id="3_xvcbp"]
+[ext_resource type="Script" path="res://scripts/Shop/infopicker.gd" id="5_kplb4"]
+[ext_resource type="Script" path="res://scripts/Shop/Sell.gd" id="6_2c0w3"]
+[ext_resource type="Script" path="res://scripts/Shop/OfferContainer.gd" id="7_a0bd5"]
+[ext_resource type="Script" path="res://scripts/ServerCom/player_info_update.gd" id="7_tc40u"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_np8mq")
+centered = false
+
+[node name="ButtonReturn" type="Button" parent="."]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 16.0
+offset_right = 114.0
+offset_bottom = 47.0
+text = "Return Shop"
+script = ExtResource("2_3xnos")
+path = "res://level/Shop.tscn"
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+position = Vector2(112, 168)
+texture = ExtResource("3_e8euo")
+script = ExtResource("3_xvcbp")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 216.0
+offset_top = 80.0
+offset_right = 1256.0
+offset_bottom = 256.0
+script = ExtResource("5_kplb4")
+
+[node name="i" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="ii" type="VBoxContainer" parent="VBoxContainer/i"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Status" type="Label" parent="VBoxContainer/i/ii"]
+visible = false
+modulate = Color(0, 0, 0, 1)
+layout_mode = 2
+
+[node name="Sell" type="Button" parent="VBoxContainer/i/ii"]
+layout_mode = 2
+text = "PUT ON THE MARKET"
+script = ExtResource("6_2c0w3")
+
+[node name="Name" type="Label" parent="VBoxContainer/i/ii"]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 2
+text = "sdsdsdsdsdsd"
+
+[node name="Type" type="Label" parent="VBoxContainer/i/ii"]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 2
+text = "sdsd"
+
+[node name="Price" type="Label" parent="VBoxContainer/i/ii"]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 2
+text = "sdsd"
+
+[node name="Stock" type="Label" parent="VBoxContainer/i/ii"]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 2
+text = "sdsd"
+
+[node name="ii2" type="VBoxContainer" parent="VBoxContainer/i"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Desc" type="Label" parent="VBoxContainer/i/ii2"]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 2
+text = "sdsdsdsdsdssdsdsd"
+autowrap_mode = 3
+
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+layout_mode = 0
+offset_left = 24.0
+offset_top = 296.0
+offset_right = 1264.0
+offset_bottom = 704.0
+
+[node name="OfferContainer" type="VBoxContainer" parent="ScrollContainer"]
+layout_mode = 2
+script = ExtResource("7_a0bd5")
+
+[node name="GridContainer" type="GridContainer" parent="."]
+layout_mode = 2
+offset_left = 1040.0
+offset_top = 16.0
+offset_right = 1198.0
+offset_bottom = 72.0
+
+[node name="player_info" type="VBoxContainer" parent="GridContainer"]
+layout_mode = 2
+script = ExtResource("7_tc40u")
+
+[node name="ID" type="Label" parent="GridContainer/player_info"]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 2
+text = "Name:
+Companion Dollars:"
+
+[connection signal="pressed" from="ButtonReturn" to="ButtonReturn" method="_on_pressed"]
+[connection signal="pressed" from="VBoxContainer/i/ii/Sell" to="VBoxContainer/i/ii/Sell" method="_on_pressed"]

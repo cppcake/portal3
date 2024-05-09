@@ -1,0 +1,151 @@
+[gd_scene load_steps=15 format=3 uid="uid://d05lesoqe1s0"]
+
+[ext_resource type="Texture2D" uid="uid://dj6jekibefp0m" path="res://sprites/wall_contrast.png" id="1_vmkvl"]
+[ext_resource type="Script" path="res://scripts/Minigame/suicider.gd" id="1_yv0ov"]
+[ext_resource type="PackedScene" uid="uid://dvlfgoagr1ojq" path="res://misc/horizontal_barrier.tscn" id="2_lsqy3"]
+[ext_resource type="PackedScene" uid="uid://c7rs6gv0m3fn5" path="res://misc/minigame/floor_orange.tscn" id="3_k8k21"]
+[ext_resource type="PackedScene" uid="uid://cuqorhru32sk2" path="res://misc/minigame/floor_orange_blocks.tscn" id="4_ssvjb"]
+[ext_resource type="PackedScene" uid="uid://ddeg5qpvdxto0" path="res://misc/minigame/hazard_spikes.tscn" id="5_4x1d1"]
+[ext_resource type="PackedScene" uid="uid://b6os6ru8aiynv" path="res://misc/minigame/help_ground_jump.tscn" id="5_yldng"]
+[ext_resource type="PackedScene" uid="uid://b5rirxeymhkom" path="res://misc/block.tscn" id="6_17pp4"]
+[ext_resource type="Texture2D" uid="uid://clwrgwncjyd2n" path="res://sprites/Transparent_Shop_Icons/T_GLaDOS.png" id="6_cujta"]
+[ext_resource type="Script" path="res://scripts/Minigame/spinner.gd" id="7_ed6e6"]
+[ext_resource type="PackedScene" uid="uid://bun2xa8aqkwjt" path="res://misc/minigame/block_orange.tscn" id="7_qsd6x"]
+[ext_resource type="PackedScene" uid="uid://c53s5esry2gwu" path="res://misc/minigame/help_block_jump.tscn" id="7_rexja"]
+[ext_resource type="PackedScene" uid="uid://cygmsrya4h1ke" path="res://misc/minigame/hazard_companion_cube.tscn" id="8_dldro"]
+[ext_resource type="Texture2D" uid="uid://dhytwy0xjrrgi" path="res://sprites/Transparent_Shop_Icons/T_Wheatley.png" id="14_0lorn"]
+
+[node name="root" type="Node2D"]
+script = ExtResource("1_yv0ov")
+
+[node name="MainRoom" type="ColorRect" parent="."]
+custom_minimum_size = Vector2(1280, 720)
+offset_right = 1280.0
+offset_bottom = 720.0
+pivot_offset = Vector2(348, 573)
+color = Color(1, 0, 0, 1)
+
+[node name="Sprite2D3" type="Sprite2D" parent="MainRoom"]
+position = Vector2(1280, 0)
+texture = ExtResource("1_vmkvl")
+centered = false
+
+[node name="Sprite2D4" type="Sprite2D" parent="MainRoom"]
+texture = ExtResource("1_vmkvl")
+centered = false
+
+[node name="Roof" parent="MainRoom" instance=ExtResource("2_lsqy3")]
+layout_mode = 1
+
+[node name="Roof2" parent="MainRoom" instance=ExtResource("2_lsqy3")]
+layout_mode = 1
+offset_left = 1280.0
+offset_right = 2560.0
+
+[node name="Horizontal Barrier" parent="MainRoom" instance=ExtResource("3_k8k21")]
+layout_mode = 1
+offset_top = -48.0
+offset_bottom = 0.0
+
+[node name="Horizontal Barrier2" parent="MainRoom" instance=ExtResource("3_k8k21")]
+layout_mode = 1
+offset_left = 1280.0
+offset_top = -48.0
+offset_right = 2560.0
+offset_bottom = 0.0
+
+[node name="Obstacle_2" type="Node2D" parent="."]
+position = Vector2(1248, 672)
+
+[node name="help_block_jump" parent="Obstacle_2" instance=ExtResource("5_yldng")]
+position = Vector2(-32, 24)
+
+[node name="help_block_jump2" parent="Obstacle_2" instance=ExtResource("5_yldng")]
+position = Vector2(424, 24)
+
+[node name="Obstacle_3" type="Node2D" parent="."]
+position = Vector2(-128, 0)
+
+[node name="Area2D" parent="Obstacle_3" instance=ExtResource("8_dldro")]
+position = Vector2(1512, 640)
+
+[node name="Area2D2" parent="Obstacle_3" instance=ExtResource("8_dldro")]
+position = Vector2(1576, 640)
+
+[node name="Area2D3" parent="Obstacle_3" instance=ExtResource("8_dldro")]
+position = Vector2(1640, 640)
+
+[node name="Area2D4" parent="Obstacle_3" instance=ExtResource("8_dldro")]
+position = Vector2(1560, 576)
+
+[node name="Area2D5" parent="Obstacle_3" instance=ExtResource("8_dldro")]
+position = Vector2(1624, 576)
+
+[node name="Area2D6" parent="Obstacle_3" instance=ExtResource("8_dldro")]
+position = Vector2(1576, 512)
+
+[node name="help_block_jump" parent="." instance=ExtResource("7_rexja")]
+position = Vector2(1624, 408)
+
+[node name="Obstacle_4" type="Node2D" parent="."]
+position = Vector2(0, -112)
+
+[node name="help_block_jump" parent="Obstacle_4" instance=ExtResource("7_qsd6x")]
+position = Vector2(1816, 376)
+
+[node name="Obstacle_1" parent="Obstacle_4" instance=ExtResource("4_ssvjb")]
+position = Vector2(1864, 376)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-56, 88)
+texture = ExtResource("6_cujta")
+script = ExtResource("7_ed6e6")
+number = 0
+max_height = 0
+min_height = 0
+max_width = 0
+min_width = 1600
+speed_height = 0.0
+speed_width = 3.0
+
+[node name="Node2D" type="Node2D" parent="."]
+position = Vector2(0, 48)
+
+[node name="Area2D2" parent="Node2D" instance=ExtResource("5_4x1d1")]
+position = Vector2(1840, 272)
+rotation = 3.14159
+
+[node name="Area2D3" parent="Node2D" instance=ExtResource("5_4x1d1")]
+position = Vector2(1968, 272)
+rotation = 3.14159
+
+[node name="Area2D4" parent="Node2D" instance=ExtResource("5_4x1d1")]
+position = Vector2(2096, 272)
+rotation = 3.14159
+
+[node name="Area2D5" parent="Node2D" instance=ExtResource("5_4x1d1")]
+position = Vector2(2192, 352)
+rotation = -1.5708
+
+[node name="StaticBody2D" parent="Node2D" instance=ExtResource("6_17pp4")]
+position = Vector2(2184, 264)
+
+[node name="StaticBody2D2" parent="Node2D" instance=ExtResource("6_17pp4")]
+position = Vector2(2232, 264)
+
+[node name="StaticBody2D3" parent="Node2D" instance=ExtResource("6_17pp4")]
+position = Vector2(2248, 312)
+
+[node name="StaticBody2D4" parent="Node2D" instance=ExtResource("6_17pp4")]
+position = Vector2(2248, 360)
+
+[node name="StaticBody2D5" parent="Node2D" instance=ExtResource("6_17pp4")]
+position = Vector2(2280, 264)
+
+[node name="StaticBody2D6" parent="Node2D" instance=ExtResource("6_17pp4")]
+position = Vector2(2248, 408)
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+position = Vector2(792, 816)
+scale = Vector2(0.72, 0.72)
+texture = ExtResource("14_0lorn")

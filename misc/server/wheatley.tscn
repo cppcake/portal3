@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://d2ucvhysm5nok"]
+
+[node name="Wheatley" type="Node"]
+metadata/IP = "139.162.139.67"
+metadata/Port = "8000"
+metadata/Account_Handle = ""
+metadata/Account_ID = ""
+metadata/player_info = {}
+metadata/Shop = {}
+metadata/top_score = 0
+metadata/highscore = {}
+metadata/cakeholder = {}
+metadata/chell_pos = 0
