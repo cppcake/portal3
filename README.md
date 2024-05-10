@@ -11,3 +11,5 @@
 - Ende: Es soll ein Ende geben
 - Design Rework
 - Story: Alex hat sich bereit erklärt ein erstklassiges Skript für eine Story zu schreiben und der Synchronsprecher für Glados und Wheatley zu sein
+- Offline Rework?
+- Smartphoneport?
