@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://di43h2b1phwgx"]
+[gd_scene load_steps=15 format=3 uid="uid://di43h2b1phwgx"]
 
 [ext_resource type="PackedScene" uid="uid://jg20aef2fpib" path="res://misc/Player.tscn" id="1_8pj75"]
 [ext_resource type="Texture2D" uid="uid://deqtl1mn6wcvc" path="res://sprites/wall.png" id="2_j8tn8"]
@@ -13,9 +13,6 @@
 [ext_resource type="PackedScene" uid="uid://6180x1ut1c5g" path="res://misc/portal.tscn" id="10_y0xav"]
 [ext_resource type="Texture2D" uid="uid://7ii2ch1sfwok" path="res://sprites/blue_portal.png" id="11_amwtv"]
 [ext_resource type="Texture2D" uid="uid://bccb3lmtkyn86" path="res://sprites/orange_portal.png" id="12_koo8f"]
-[ext_resource type="Script" path="res://scripts/ServerCom/player_info_update.gd" id="13_u2om2"]
-[ext_resource type="Script" path="res://scripts/ServerCom/cake_holder.gd" id="14_l0nh6"]
-[ext_resource type="Script" path="res://scripts/ServerCom/high_score.gd" id="16_tavcn"]
 [ext_resource type="Texture2D" uid="uid://dihubvwhduia4" path="res://sprites/ana.png" id="16_vb8hq"]
 
 [node name="root" type="Node2D"]
@@ -190,62 +187,6 @@ position = Vector2(1112, 296)
 [node name="StaticBody2D4" parent="Obstacle3" groups=["PortalForbidden"] instance=ExtResource("7_w3752")]
 position = Vector2(1256, 296)
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-
-[node name="CenterContainer" type="CenterContainer" parent="CanvasLayer"]
-anchors_preset = 10
-anchor_right = 1.0
-offset_left = 916.0
-offset_top = 48.0
-offset_right = -44.0
-offset_bottom = 104.0
-grow_horizontal = 2
-
-[node name="player_info" type="VBoxContainer" parent="CanvasLayer/CenterContainer"]
-layout_mode = 2
-script = ExtResource("13_u2om2")
-
-[node name="ID" type="Label" parent="CanvasLayer/CenterContainer/player_info"]
-modulate = Color(0, 0, 0, 1)
-layout_mode = 2
-text = "Name:
-Companion Dollars:"
-
-[node name="server_stats" type="VBoxContainer" parent="."]
-offset_left = 56.0
-offset_top = 152.0
-offset_right = 472.0
-offset_bottom = 208.0
-
-[node name="cake" type="Label" parent="server_stats"]
-modulate = Color(0, 0, 0, 1)
-layout_mode = 2
-text = "Current Cake Holder: "
-clip_text = true
-script = ExtResource("14_l0nh6")
-
-[node name="score" type="Label" parent="server_stats"]
-modulate = Color(0, 0, 0, 1)
-layout_mode = 2
-text = "Server Top-Score: "
-clip_text = true
-script = ExtResource("16_tavcn")
-
-[node name="Door" parent="." groups=["PortalForbidden"] instance=ExtResource("6_armu2")]
-position = Vector2(1112, 608)
-placer_enabled = true
-place = 0
-path = "res://level/Auth.tscn"
-
-[node name="Label" type="Label" parent="Door"]
-modulate = Color(0, 0, 0, 1)
-offset_left = -32.0
-offset_top = -88.0
-offset_right = 35.0
-offset_bottom = -62.0
-text = "Logout"
-horizontal_alignment = 1
-
 [node name="Sprite2D2" type="Sprite2D" parent="."]
 position = Vector2(616, 812)
 texture = ExtResource("16_vb8hq")
@@ -267,5 +208,3 @@ text = "In fünf Tagen schreibe ich Ana btw ~ Afeef"
 [connection signal="body_exited" from="Obstacle2/Door" to="Obstacle2/Door" method="_on_body_exited"]
 [connection signal="body_entered" from="Obstacle3/Door" to="Obstacle3/Door" method="_on_body_entered"]
 [connection signal="body_exited" from="Obstacle3/Door" to="Obstacle3/Door" method="_on_body_exited"]
-[connection signal="body_entered" from="Door" to="Door" method="_on_body_entered"]
-[connection signal="body_exited" from="Door" to="Door" method="_on_body_exited"]

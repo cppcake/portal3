@@ -26,11 +26,11 @@ func _ready():
 	
 func gameover(score):
 	
-	http_minigame.request("http://" + wheatley.get_meta("IP") + ":" + wheatley.get_meta("Port") +  "/money/increase/" + str(ah) + "/" + str(score), [], HTTPClient.METHOD_POST)
-	http_highscore.request("http://" + wheatley.get_meta("IP") + ":" + wheatley.get_meta("Port") +  "/highscore/" + wheatley.get_meta("Player_Info")["User"] + "/" + str(score), [], HTTPClient.METHOD_POST)
+	#http_minigame.request("http://" + wheatley.get_meta("IP") + ":" + wheatley.get_meta("Port") +  "/money/increase/" + str(ah) + "/" + str(score), [], HTTPClient.METHOD_POST)
+	#http_highscore.request("http://" + wheatley.get_meta("IP") + ":" + wheatley.get_meta("Port") +  "/highscore/" + wheatley.get_meta("Player_Info")["User"] + "/" + str(score), [], HTTPClient.METHOD_POST)
 	
-	if wheatley.get_meta("top_score") < score:
-		wheatley.set_meta("top_score", score)
+	#if wheatley.get_meta("top_score") < score:
+	#	wheatley.set_meta("top_score", score)
 	
 	var music = load("res://sounds/music/dead.mp3")
 	player.get_node("AudioStreamPlayer2D").set_stream(music)

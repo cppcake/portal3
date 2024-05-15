@@ -1,7 +1,7 @@
 extends Sprite2D
 
 
-func _process(delta):
+func _process(_delta):
 	var pos = get_global_mouse_position()
 	
 	if (pos.x - get_parent().position.x) < 0:

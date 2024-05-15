@@ -293,12 +293,6 @@ offset_right = 209.0
 offset_bottom = 100.0
 script = ExtResource("22_82gml")
 
-[node name="ID" type="Label" parent="player_info"]
-modulate = Color(0, 0, 0, 1)
-layout_mode = 2
-text = "Name:
-Companion Dollars:"
-
 [connection signal="body_entered" from="PortalControl/Orange" to="PortalControl" method="_on_orange_body_entered"]
 [connection signal="body_exited" from="PortalControl/Orange" to="PortalControl" method="_on_orange_body_exited"]
 [connection signal="body_entered" from="PortalControl/Blue" to="PortalControl" method="_on_blue_body_entered"]

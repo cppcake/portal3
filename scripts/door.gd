@@ -18,19 +18,19 @@ func _ready():
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	if entered:
 		if Input.is_action_just_pressed("Interact"):
 			if placer_enabled:
 				get_node("/root/Wheatley").set_meta("chell_pos", place)
 			get_tree().change_scene_to_file(path)
 
-func _on_body_entered(body):
+func _on_body_entered(_body):
 	label.set_text("Press E")
 	#print("11")
 	entered = true
 	
-func _on_body_exited(body):
+func _on_body_exited(_body):
 	label.set_text(info)
 	#print("21")
 	entered = false

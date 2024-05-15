@@ -24,5 +24,3 @@ func _on_request_completed(result, response_code, headers, body: PackedByteArray
 		var json = JSON.parse_string(body.get_string_from_utf8())
 		id_holder.set_text("Name: " + str(json["User"]) + " (" + wheatley.get_meta("Account_ID") + ')' +  '\n' + "Companion Dollars: " + str(json["money"]))
 		wheatley.set_meta("Player_Info", json)
-	else:
-		id_holder.set_text("Something went horribly wrong..." + '\n' + "What did you do... you monster")
