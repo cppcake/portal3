@@ -46,7 +46,7 @@ func _ready():
 	audio_open = get_node("../Player/AudioPortalOpen")
 	audio_invalid = get_node("../Player/AudioPortalInvalid")
 
-func _process(delta):
+func _process(_delta):
 	if Input.is_action_just_pressed("M1"):
 		try_place(blue)
 	else:
@@ -78,13 +78,6 @@ func _adjust_portal_position(limit: float, adjust_direction: Vector2):
 		test.position.y += general_height_adjustment
 	else:
 		test.position.y -= general_height_adjustment
-	
-	# Zu gehende Schrittgröße finden.
-	# Wenn das Limit kleiner als die Schrittgröße ist, wird das Limit
-	# als Schrittgröße benutzt.
-	var step = step_size
-	if limit < step_size:
-		step = limit
 		
 	test.position += adjust_direction * step_size
 	await _adjust_portal_position(limit-step_size, adjust_direction)

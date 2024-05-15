@@ -5,12 +5,6 @@ var player
 func _ready():
 	player = get_node("/root/root/Player")
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
-
-
 func _on_area_2d_body_entered(body):
 	if body == player:
 		body.velocity.y = -800
