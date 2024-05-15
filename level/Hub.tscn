@@ -88,10 +88,10 @@ texture = ExtResource("11_amwtv")
 position = Vector2(0, 48)
 
 [node name="Door" parent="Obstacle1" instance=ExtResource("6_armu2")]
-position = Vector2(1160, 208)
+position = Vector2(1165, 208)
 placer_enabled = true
 place = 3
-path = "res://level/Shop.tscn"
+path = "res://level/Hub.tscn"
 
 [node name="Label" type="Label" parent="Obstacle1/Door"]
 modulate = Color(0, 0, 0, 1)
@@ -171,7 +171,7 @@ offset_left = -40.0
 offset_top = -88.0
 offset_right = 37.0
 offset_bottom = -62.0
-text = "Minigame"
+text = "MINIGAME"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -198,6 +198,23 @@ offset_right = 145.0
 offset_bottom = 87.0
 text = "In fünf Tagen schreibe ich Ana btw ~ Afeef"
 
+[node name="ExitDoor" parent="." instance=ExtResource("6_armu2")]
+position = Vector2(1137, 608)
+placer_enabled = true
+place = 3
+path = "res://level/Exit.tscn"
+
+[node name="Label" type="Label" parent="ExitDoor"]
+modulate = Color(0, 0, 0, 1)
+offset_left = -40.0
+offset_top = -88.0
+offset_right = 38.0
+offset_bottom = -62.0
+text = "EXIT
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [connection signal="body_entered" from="PortalControl/Orange" to="PortalControl" method="_on_orange_body_entered"]
 [connection signal="body_exited" from="PortalControl/Orange" to="PortalControl" method="_on_orange_body_exited"]
 [connection signal="body_entered" from="PortalControl/Blue" to="PortalControl" method="_on_blue_body_entered"]
@@ -208,3 +225,5 @@ text = "In fünf Tagen schreibe ich Ana btw ~ Afeef"
 [connection signal="body_exited" from="Obstacle2/Door" to="Obstacle2/Door" method="_on_body_exited"]
 [connection signal="body_entered" from="Obstacle3/Door" to="Obstacle3/Door" method="_on_body_entered"]
 [connection signal="body_exited" from="Obstacle3/Door" to="Obstacle3/Door" method="_on_body_exited"]
+[connection signal="body_entered" from="ExitDoor" to="ExitDoor" method="_on_body_entered"]
+[connection signal="body_exited" from="ExitDoor" to="ExitDoor" method="_on_body_exited"]

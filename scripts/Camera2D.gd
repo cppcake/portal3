@@ -15,7 +15,7 @@ func _ready():
 	status = get_node("Label")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _physics_process(delta):
+func _physics_process(_delta):
 	var new_pos = init_pos +  (player.position.x - init_pos_player)
 	if new_pos >= 0:
 		position.x = new_pos

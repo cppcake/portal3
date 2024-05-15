@@ -27,7 +27,7 @@ func _ready():
 	audio_open = get_node("../Player/AudioPortalOpen")
 	audio_invalid = get_node("../Player/AudioPortalInvalid")
 
-func _process(delta):
+func _process(_delta):
 	if Input.is_action_just_pressed("M1"):
 		try_place(blue)
 	else:

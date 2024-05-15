@@ -44,6 +44,9 @@ func _on_body_entered(body):
 		
 		var instance = sections[new_section].instantiate()
 		instance.position.x = position.x + 1280
-		get_node("/root/root").add_child(instance)
+		call_deferred("so_it_stops_the_errors", instance)
 		
 		position.x += (1280 * 2)
+
+func so_it_stops_the_errors(instance):
+	get_node("/root/root").add_child(instance)
