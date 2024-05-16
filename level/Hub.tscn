@@ -16,53 +16,16 @@
 [ext_resource type="Texture2D" uid="uid://dihubvwhduia4" path="res://sprites/ana.png" id="16_vb8hq"]
 
 [node name="root" type="Node2D"]
-
-[node name="ColorRect" type="ColorRect" parent="."]
-custom_minimum_size = Vector2(1280, 720)
-offset_right = 1280.0
-offset_bottom = 720.0
-pivot_offset = Vector2(348, 573)
-color = Color(1, 0, 0, 1)
-
-[node name="Sprite2D" type="Sprite2D" parent="ColorRect"]
-texture = ExtResource("2_j8tn8")
-centered = false
-
-[node name="Floor" parent="ColorRect" instance=ExtResource("3_ny7yq")]
-layout_mode = 0
-anchors_preset = 0
-anchor_top = 0.0
-anchor_bottom = 0.0
-offset_top = 672.0
-offset_bottom = 720.0
-grow_vertical = 1
-
-[node name="Roof" parent="ColorRect" instance=ExtResource("3_ny7yq")]
-layout_mode = 1
-
-[node name="Wall-Left" parent="ColorRect" instance=ExtResource("4_rqjef")]
-layout_mode = 1
-offset_left = 1232.0
-offset_top = -672.0
-offset_right = 1280.0
-offset_bottom = -48.0
-
-[node name="Wall-Right" parent="ColorRect" instance=ExtResource("4_rqjef")]
-layout_mode = 1
-offset_top = -672.0
-offset_bottom = -48.0
-
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="ColorRect"]
-stream = ExtResource("5_inlrr")
-autoplay = true
-
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(184, 104)
-texture = ExtResource("8_3ie35")
 script = ExtResource("6_uwpnt")
 
 [node name="Player" parent="." instance=ExtResource("1_8pj75")]
 position = Vector2(608, 632)
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Player"]
+position = Vector2(-715.294, -743.529)
+scale = Vector2(1.17647, 1.17647)
+stream = ExtResource("5_inlrr")
+autoplay = true
 
 [node name="PortalControl" type="Node2D" parent="."]
 script = ExtResource("9_oef8l")
@@ -84,114 +47,49 @@ position = Vector2(-128, 0)
 [node name="Sprite2D" type="Sprite2D" parent="PortalControl/Blue"]
 texture = ExtResource("11_amwtv")
 
-[node name="Obstacle1" type="Node2D" parent="."]
-position = Vector2(0, 48)
+[node name="Design" type="ColorRect" parent="."]
+custom_minimum_size = Vector2(1280, 720)
+offset_right = 1280.0
+offset_bottom = 720.0
+pivot_offset = Vector2(348, 573)
 
-[node name="Door" parent="Obstacle1" instance=ExtResource("6_armu2")]
-position = Vector2(1165, 208)
-placer_enabled = true
-place = 3
-path = "res://level/Hub.tscn"
+[node name="Floor" parent="Design" instance=ExtResource("3_ny7yq")]
+layout_mode = 0
+anchors_preset = 0
+anchor_top = 0.0
+anchor_bottom = 0.0
+offset_top = 672.0
+offset_bottom = 720.0
+grow_vertical = 1
 
-[node name="Label" type="Label" parent="Obstacle1/Door"]
-modulate = Color(0, 0, 0, 1)
-offset_left = -40.0
-offset_top = -88.0
-offset_right = 38.0
-offset_bottom = -62.0
-text = "SHOP
-"
-horizontal_alignment = 1
-vertical_alignment = 1
+[node name="Roof" parent="Design" instance=ExtResource("3_ny7yq")]
+layout_mode = 1
 
-[node name="StaticBody2D" parent="Obstacle1" groups=["PortalForbidden"] instance=ExtResource("7_w3752")]
-position = Vector2(1208, 296)
+[node name="Wall-Left" parent="Design" instance=ExtResource("4_rqjef")]
+layout_mode = 1
+offset_left = 1232.0
+offset_top = -672.0
+offset_right = 1280.0
+offset_bottom = -48.0
 
-[node name="StaticBody2D2" parent="Obstacle1" groups=["PortalForbidden"] instance=ExtResource("7_w3752")]
-position = Vector2(1160, 296)
+[node name="Wall-Right" parent="Design" instance=ExtResource("4_rqjef")]
+layout_mode = 1
+offset_top = -672.0
+offset_bottom = -48.0
 
-[node name="StaticBody2D3" parent="Obstacle1" groups=["PortalForbidden"] instance=ExtResource("7_w3752")]
-position = Vector2(1112, 296)
+[node name="Background" type="Sprite2D" parent="Design"]
+texture = ExtResource("2_j8tn8")
+centered = false
 
-[node name="StaticBody2D4" parent="Obstacle1" groups=["PortalForbidden"] instance=ExtResource("7_w3752")]
-position = Vector2(1064, 296)
+[node name="ApertureShopLogo" type="Sprite2D" parent="Design"]
+position = Vector2(184, 104)
+texture = ExtResource("8_3ie35")
 
-[node name="StaticBody2D5" parent="Obstacle1" groups=["PortalForbidden"] instance=ExtResource("7_w3752")]
-position = Vector2(1016, 296)
-
-[node name="Obstacle2" type="Node2D" parent="."]
-position = Vector2(-944, 200)
-
-[node name="Door" parent="Obstacle2" groups=["PortalForbidden"] instance=ExtResource("6_armu2")]
-position = Vector2(1056, 208)
-placer_enabled = true
-place = 1
-path = "res://level/Inventory.tscn"
-
-[node name="Label" type="Label" parent="Obstacle2/Door"]
-modulate = Color(0, 0, 0, 1)
-offset_left = -56.0
-offset_top = -88.0
-offset_right = 61.0
-offset_bottom = -62.0
-text = "INVENTORY"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="StaticBody2D" parent="Obstacle2" groups=["PortalForbidden"] instance=ExtResource("7_w3752")]
-position = Vector2(1208, 296)
-
-[node name="StaticBody2D2" parent="Obstacle2" groups=["PortalForbidden"] instance=ExtResource("7_w3752")]
-position = Vector2(1160, 296)
-
-[node name="StaticBody2D3" parent="Obstacle2" groups=["PortalForbidden"] instance=ExtResource("7_w3752")]
-position = Vector2(1112, 296)
-
-[node name="StaticBody2D4" parent="Obstacle2" groups=["PortalForbidden"] instance=ExtResource("7_w3752")]
-position = Vector2(1064, 296)
-
-[node name="StaticBody2D5" parent="Obstacle2" groups=["PortalForbidden"] instance=ExtResource("7_w3752")]
-position = Vector2(1016, 296)
-
-[node name="StaticBody2D6" parent="Obstacle2" groups=["PortalForbidden"] instance=ExtResource("7_w3752")]
-position = Vector2(1256, 296)
-
-[node name="Obstacle3" type="Node2D" parent="."]
-position = Vector2(-552, -72)
-
-[node name="Door" parent="Obstacle3" groups=["PortalForbidden"] instance=ExtResource("6_armu2")]
-position = Vector2(1136, 208)
-placer_enabled = true
-place = 2
-path = "res://level/Minigame.tscn"
-
-[node name="Label" type="Label" parent="Obstacle3/Door"]
-modulate = Color(0, 0, 0, 1)
-offset_left = -40.0
-offset_top = -88.0
-offset_right = 37.0
-offset_bottom = -62.0
-text = "MINIGAME"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="StaticBody2D" parent="Obstacle3" groups=["PortalForbidden"] instance=ExtResource("7_w3752")]
-position = Vector2(1208, 296)
-
-[node name="StaticBody2D2" parent="Obstacle3" groups=["PortalForbidden"] instance=ExtResource("7_w3752")]
-position = Vector2(1160, 296)
-
-[node name="StaticBody2D3" parent="Obstacle3" groups=["PortalForbidden"] instance=ExtResource("7_w3752")]
-position = Vector2(1112, 296)
-
-[node name="StaticBody2D4" parent="Obstacle3" groups=["PortalForbidden"] instance=ExtResource("7_w3752")]
-position = Vector2(1256, 296)
-
-[node name="Sprite2D2" type="Sprite2D" parent="."]
+[node name="EasterEggAna" type="Sprite2D" parent="Design"]
 position = Vector2(616, 812)
 texture = ExtResource("16_vb8hq")
 
-[node name="Label" type="Label" parent="Sprite2D2"]
+[node name="Label" type="Label" parent="Design/EasterEggAna"]
 offset_left = -180.0
 offset_top = 61.0
 offset_right = 145.0
@@ -215,15 +113,109 @@ text = "EXIT
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="ShopDoor" parent="." instance=ExtResource("6_armu2")]
+position = Vector2(1164, 250)
+placer_enabled = true
+place = 3
+path = "res://level/Hub.tscn"
+
+[node name="Label" type="Label" parent="ShopDoor"]
+modulate = Color(0, 0, 0, 1)
+offset_left = -40.0
+offset_top = -88.0
+offset_right = 38.0
+offset_bottom = -62.0
+text = "SHOP
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="StaticBody2D" parent="ShopDoor" groups=["PortalForbidden"] instance=ExtResource("7_w3752")]
+position = Vector2(43, 88)
+
+[node name="StaticBody2D2" parent="ShopDoor" groups=["PortalForbidden"] instance=ExtResource("7_w3752")]
+position = Vector2(-5, 88)
+
+[node name="StaticBody2D3" parent="ShopDoor" groups=["PortalForbidden"] instance=ExtResource("7_w3752")]
+position = Vector2(-53, 88)
+
+[node name="StaticBody2D4" parent="ShopDoor" groups=["PortalForbidden"] instance=ExtResource("7_w3752")]
+position = Vector2(-101, 88)
+
+[node name="StaticBody2D5" parent="ShopDoor" groups=["PortalForbidden"] instance=ExtResource("7_w3752")]
+position = Vector2(-149, 88)
+
+[node name="MiniGameDoor" parent="." groups=["PortalForbidden"] instance=ExtResource("6_armu2")]
+position = Vector2(584, 136)
+placer_enabled = true
+place = 2
+path = "res://level/Minigame.tscn"
+
+[node name="Label" type="Label" parent="MiniGameDoor"]
+modulate = Color(0, 0, 0, 1)
+offset_left = -40.0
+offset_top = -88.0
+offset_right = 37.0
+offset_bottom = -62.0
+text = "MINIGAME"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="StaticBody2D" parent="MiniGameDoor" groups=["PortalForbidden"] instance=ExtResource("7_w3752")]
+position = Vector2(72, 88)
+
+[node name="StaticBody2D2" parent="MiniGameDoor" groups=["PortalForbidden"] instance=ExtResource("7_w3752")]
+position = Vector2(24, 88)
+
+[node name="StaticBody2D3" parent="MiniGameDoor" groups=["PortalForbidden"] instance=ExtResource("7_w3752")]
+position = Vector2(-24, 88)
+
+[node name="StaticBody2D4" parent="MiniGameDoor" groups=["PortalForbidden"] instance=ExtResource("7_w3752")]
+position = Vector2(120, 88)
+
+[node name="InventoryDoor" parent="." groups=["PortalForbidden"] instance=ExtResource("6_armu2")]
+position = Vector2(112, 408)
+placer_enabled = true
+place = 1
+path = "res://level/Inventory.tscn"
+
+[node name="Label" type="Label" parent="InventoryDoor"]
+modulate = Color(0, 0, 0, 1)
+offset_left = -56.0
+offset_top = -88.0
+offset_right = 61.0
+offset_bottom = -62.0
+text = "INVENTORY"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="StaticBody2D" parent="InventoryDoor" groups=["PortalForbidden"] instance=ExtResource("7_w3752")]
+position = Vector2(152, 88)
+
+[node name="StaticBody2D2" parent="InventoryDoor" groups=["PortalForbidden"] instance=ExtResource("7_w3752")]
+position = Vector2(104, 88)
+
+[node name="StaticBody2D3" parent="InventoryDoor" groups=["PortalForbidden"] instance=ExtResource("7_w3752")]
+position = Vector2(56, 88)
+
+[node name="StaticBody2D4" parent="InventoryDoor" groups=["PortalForbidden"] instance=ExtResource("7_w3752")]
+position = Vector2(8, 88)
+
+[node name="StaticBody2D5" parent="InventoryDoor" groups=["PortalForbidden"] instance=ExtResource("7_w3752")]
+position = Vector2(-40, 88)
+
+[node name="StaticBody2D6" parent="InventoryDoor" groups=["PortalForbidden"] instance=ExtResource("7_w3752")]
+position = Vector2(200, 88)
+
 [connection signal="body_entered" from="PortalControl/Orange" to="PortalControl" method="_on_orange_body_entered"]
 [connection signal="body_exited" from="PortalControl/Orange" to="PortalControl" method="_on_orange_body_exited"]
 [connection signal="body_entered" from="PortalControl/Blue" to="PortalControl" method="_on_blue_body_entered"]
 [connection signal="body_exited" from="PortalControl/Blue" to="PortalControl" method="_on_blue_body_exited"]
-[connection signal="body_entered" from="Obstacle1/Door" to="Obstacle1/Door" method="_on_body_entered"]
-[connection signal="body_exited" from="Obstacle1/Door" to="Obstacle1/Door" method="_on_body_exited"]
-[connection signal="body_entered" from="Obstacle2/Door" to="Obstacle2/Door" method="_on_body_entered"]
-[connection signal="body_exited" from="Obstacle2/Door" to="Obstacle2/Door" method="_on_body_exited"]
-[connection signal="body_entered" from="Obstacle3/Door" to="Obstacle3/Door" method="_on_body_entered"]
-[connection signal="body_exited" from="Obstacle3/Door" to="Obstacle3/Door" method="_on_body_exited"]
 [connection signal="body_entered" from="ExitDoor" to="ExitDoor" method="_on_body_entered"]
 [connection signal="body_exited" from="ExitDoor" to="ExitDoor" method="_on_body_exited"]
+[connection signal="body_entered" from="ShopDoor" to="ShopDoor" method="_on_body_entered"]
+[connection signal="body_exited" from="ShopDoor" to="ShopDoor" method="_on_body_exited"]
+[connection signal="body_entered" from="MiniGameDoor" to="MiniGameDoor" method="_on_body_entered"]
+[connection signal="body_exited" from="MiniGameDoor" to="MiniGameDoor" method="_on_body_exited"]
+[connection signal="body_entered" from="InventoryDoor" to="InventoryDoor" method="_on_body_entered"]
+[connection signal="body_exited" from="InventoryDoor" to="InventoryDoor" method="_on_body_exited"]

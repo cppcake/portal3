@@ -1,10 +1,10 @@
-extends Sprite2D
+extends Node2D
 
 var player
 var wheatley
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	player = get_node("../Player")
+	player = get_node("./Player")
 	wheatley = get_node("/root/Wheatley")
 	
 	match wheatley.get_meta("chell_pos"):
