@@ -4,6 +4,8 @@ var jump_count = 0
 
 const SPEED = 300.0
 const JUMP_VELOCITY = -450.0
+const MAX_VELOCITY = 3250
+const MAX_JUMPS = 2
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
@@ -17,8 +19,9 @@ func _physics_process(delta):
 			velocity.y = -800
 			velocity.x = +3000
 	
-	if velocity.y > 3250:
-		velocity.y = 3250
+	if velocity.y > MAX_VELOCITY:
+		velocity.y = MAX_VELOCITY
+	
 	# Add the gravity.
 	if not is_on_floor():
 		velocity.y += gravity * delta
@@ -27,7 +30,7 @@ func _physics_process(delta):
 		jump_count = 0
 		
 	# Handle Jump.
-	if (Input.is_action_just_pressed("MoveUp")) and jump_count <= 1:
+	if (Input.is_action_just_pressed("MoveUp")) and jump_count < MAX_JUMPS:
 		jump_count += 1
 		velocity.y = JUMP_VELOCITY
 

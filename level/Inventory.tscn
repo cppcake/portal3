@@ -169,7 +169,6 @@ scale = Vector2(1.04722, 1.09167)
 texture = ExtResource("12_ssln1")
 offset = Vector2(16, 80)
 script = ExtResource("13_gwdhm")
-ogname = "GLaDOS"
 
 [node name="Label" type="Label" parent="TGLaDos"]
 modulate = Color(0, 0, 0, 1)
@@ -187,7 +186,6 @@ position = Vector2(616, 168)
 scale = Vector2(0.55, 0.55)
 texture = ExtResource("13_f8o6e")
 script = ExtResource("13_gwdhm")
-ogname = "Adventure Core"
 
 [node name="Label" type="Label" parent="TAdventureCore"]
 modulate = Color(0, 0, 0, 1)
@@ -206,7 +204,6 @@ scale = Vector2(0.55, 0.55)
 texture = ExtResource("14_jt080")
 flip_v = true
 script = ExtResource("13_gwdhm")
-ogname = "Wheatley"
 
 [node name="Label" type="Label" parent="TWheatley"]
 modulate = Color(0, 0, 0, 1)
@@ -225,7 +222,6 @@ position = Vector2(848, 128)
 scale = Vector2(0.55, 0.55)
 texture = ExtResource("15_dg1f1")
 script = ExtResource("13_gwdhm")
-ogname = "Space Core"
 
 [node name="Label" type="Label" parent="TSpaceCore"]
 modulate = Color(0, 0, 0, 1)
@@ -244,7 +240,6 @@ position = Vector2(392, 152)
 scale = Vector2(0.55, 0.55)
 texture = ExtResource("16_m7h2b")
 script = ExtResource("13_gwdhm")
-ogname = "Fact Core"
 
 [node name="Label" type="Label" parent="TFactCore"]
 modulate = Color(0, 0, 0, 1)
@@ -264,7 +259,6 @@ rotation = -0.0208643
 scale = Vector2(1.27133, 1.39803)
 texture = ExtResource("17_i64bx")
 script = ExtResource("13_gwdhm")
-ogname = "Animal King Turret"
 
 [node name="Label" type="Label" parent="TAnimalKingTurret"]
 modulate = Color(0, 0, 0, 1)
@@ -284,7 +278,6 @@ rotation = -0.0872665
 scale = Vector2(0.818619, 0.818619)
 texture = ExtResource("18_3y8lk")
 script = ExtResource("13_gwdhm")
-ogname = "Atlas"
 
 [node name="Label" type="Label" parent="TAtlas"]
 modulate = Color(0, 0, 0, 1)
@@ -303,7 +296,6 @@ position = Vector2(112, 616)
 scale = Vector2(0.639999, 0.639999)
 texture = ExtResource("19_71qaw")
 script = ExtResource("13_gwdhm")
-ogname = "Cake"
 
 [node name="Label" type="Label" parent="TCake"]
 modulate = Color(0, 0, 0, 1)
@@ -332,7 +324,6 @@ position = Vector2(724, 594)
 scale = Vector2(0.844444, 0.844444)
 texture = ExtResource("20_68msp")
 script = ExtResource("13_gwdhm")
-ogname = "P-body"
 
 [node name="Label" type="Label" parent="TP-body"]
 modulate = Color(0, 0, 0, 1)
@@ -352,7 +343,6 @@ position = Vector2(1012, 246)
 scale = Vector2(0.360001, 0.360001)
 texture = ExtResource("21_hi2q0")
 script = ExtResource("13_gwdhm")
-ogname = "PotatOS"
 
 [node name="Label" type="Label" parent="TPotatOs"]
 modulate = Color(0, 0, 0, 1)
@@ -373,7 +363,6 @@ scale = Vector2(0.520001, 0.520001)
 texture = ExtResource("22_7dm7q")
 flip_h = true
 script = ExtResource("13_gwdhm")
-ogname = "Sentry Turret"
 
 [node name="Label" type="Label" parent="TSentryTurret"]
 modulate = Color(0, 0, 0, 1)
@@ -392,7 +381,6 @@ position = Vector2(991, 634)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("23_hwrfk")
 script = ExtResource("13_gwdhm")
-ogname = "Weighted Cube"
 
 [node name="Label" type="Label" parent="TWeightedCube"]
 modulate = Color(0, 0, 0, 1)
@@ -411,7 +399,6 @@ position = Vector2(1078, 641)
 scale = Vector2(0.979707, 0.979707)
 texture = ExtResource("25_yp660")
 script = ExtResource("13_gwdhm")
-ogname = "Companion Cube"
 
 [node name="Label" type="Label" parent="TCompanionCube"]
 modulate = Color(0, 0, 0, 1)
@@ -430,7 +417,6 @@ position = Vector2(344, 632)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("25_a6vw8")
 script = ExtResource("13_gwdhm")
-ogname = "Discouragement Redirection Cube"
 
 [node name="Label" type="Label" parent="TDiscouragementRedirectionCube"]
 modulate = Color(0, 0, 0, 1)
@@ -449,7 +435,6 @@ position = Vector2(848, 632)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("26_0bv8t")
 script = ExtResource("13_gwdhm")
-ogname = "Edgeless Safety Cube"
 
 [node name="Label" type="Label" parent="TEdgelessSafetyCube"]
 modulate = Color(0, 0, 0, 1)
@@ -469,7 +454,6 @@ rotation = -0.0523599
 scale = Vector2(0.78337, 0.745004)
 texture = ExtResource("27_p30dk")
 script = ExtResource("13_gwdhm")
-ogname = "Opera Turret"
 
 [node name="Label" type="Label" parent="TOperaTurret"]
 modulate = Color(0, 0, 0, 1)
@@ -490,7 +474,6 @@ rotation = 0.901066
 scale = Vector2(0.224435, 0.224435)
 texture = ExtResource("29_nag26")
 script = ExtResource("13_gwdhm")
-ogname = "Handheld Portal Device"
 
 [node name="Label" type="Label" parent="THandheld Portal Device"]
 modulate = Color(0, 0, 0, 1)
@@ -511,7 +494,6 @@ rotation = -0.0523599
 scale = Vector2(0.295654, 0.281174)
 texture = ExtResource("30_sru6t")
 script = ExtResource("13_gwdhm")
-ogname = "Long Fall Boots"
 
 [node name="Label" type="Label" parent="TLong Fall Boots"]
 modulate = Color(0, 0, 0, 1)
