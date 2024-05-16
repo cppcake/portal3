@@ -17,7 +17,7 @@ config/icon="res://sprites/Minigame/companion_cube.png"
 
 [autoload]
 
-Wheatley="*res://misc/server/wheatley.tscn"
+Wheatley="*res://misc/Wheatley.tscn"
 
 [display]
 

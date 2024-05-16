@@ -19,11 +19,11 @@
 [ext_resource type="PackedScene" uid="uid://b6os6ru8aiynv" path="res://misc/minigame/help_ground_jump.tscn" id="16_du1xt"]
 [ext_resource type="Script" path="res://scripts/Minigame/new_section_placer.gd" id="16_i83dx"]
 [ext_resource type="Script" path="res://scripts/Minigame/gameover_handler.gd" id="19_nsrrb"]
-[ext_resource type="Texture2D" uid="uid://fgc43yf5snyj" path="res://sprites/Transparent_Shop_Icons/T_P-body.png" id="20_gjwde"]
-[ext_resource type="Texture2D" uid="uid://d1ax2yaxfa1dn" path="res://sprites/Transparent_Shop_Icons/T_No_Cake.png" id="21_3jd5n"]
-[ext_resource type="Texture2D" uid="uid://gdiixqow0ji8" path="res://sprites/Transparent_Shop_Icons/T_Atlas.png" id="21_gdaae"]
+[ext_resource type="Texture2D" uid="uid://fgc43yf5snyj" path="res://sprites/TransparentShopIcons/T_P-body.png" id="20_gjwde"]
+[ext_resource type="Texture2D" uid="uid://d1ax2yaxfa1dn" path="res://sprites/TransparentShopIcons/T_No_Cake.png" id="21_3jd5n"]
+[ext_resource type="Texture2D" uid="uid://gdiixqow0ji8" path="res://sprites/TransparentShopIcons/T_Atlas.png" id="21_gdaae"]
 [ext_resource type="Texture2D" uid="uid://dntivvdknobc" path="res://sprites/meme.png" id="23_f80x8"]
-[ext_resource type="Texture2D" uid="uid://dyho3h4pntrg3" path="res://sprites/Transparent_Shop_Icons/T_Space_Core.png" id="24_mngsn"]
+[ext_resource type="Texture2D" uid="uid://dyho3h4pntrg3" path="res://sprites/TransparentShopIcons/T_Space_Core.png" id="24_mngsn"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_m12fr"]
 size = Vector2(1272, 624)

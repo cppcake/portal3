@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://deqtl1mn6wcvc" path="res://sprites/wall.png" id="2_j8tn8"]
 [ext_resource type="PackedScene" uid="uid://dvlfgoagr1ojq" path="res://misc/horizontal_barrier.tscn" id="3_ny7yq"]
 [ext_resource type="PackedScene" uid="uid://cd16ap2lovc83" path="res://misc/vertical_barrier.tscn" id="4_rqjef"]
-[ext_resource type="AudioStream" uid="uid://bsjt6eh77rx4b" path="res://sounds/Portal-2-OST-Volume-2-Halls-Of-Science-4.mp3" id="5_inlrr"]
+[ext_resource type="AudioStream" uid="uid://bsjt6eh77rx4b" path="res://sounds/music/Portal-2-OST-Volume-2-Halls-Of-Science-4.mp3" id="5_inlrr"]
 [ext_resource type="PackedScene" uid="uid://btcwsaquo11g7" path="res://misc/door.tscn" id="6_armu2"]
 [ext_resource type="Script" path="res://scripts/chellplacer.gd" id="6_uwpnt"]
 [ext_resource type="PackedScene" uid="uid://b5rirxeymhkom" path="res://misc/block.tscn" id="7_w3752"]
