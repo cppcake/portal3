@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://cy0ovnmp25o5y"]
+[gd_scene load_steps=26 format=3 uid="uid://cy0ovnmp25o5y"]
 
 [ext_resource type="Texture2D" uid="uid://deqtl1mn6wcvc" path="res://sprites/wall.png" id="1_ix23b"]
 [ext_resource type="PackedScene" uid="uid://dvlfgoagr1ojq" path="res://misc/horizontal_barrier.tscn" id="2_k3jm8"]
@@ -28,29 +28,24 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_m12fr"]
 size = Vector2(1272, 624)
 
-[sub_resource type="GDScript" id="GDScript_86cyj"]
-script/source = "extends Control
-
-"
-
 [node name="root" type="Node2D"]
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="Level" type="ColorRect" parent="."]
 custom_minimum_size = Vector2(1280, 720)
 offset_right = 1280.0
 offset_bottom = 720.0
 pivot_offset = Vector2(348, 573)
-color = Color(1, 0, 0, 1)
 
-[node name="Sprite2D" type="Sprite2D" parent="ColorRect"]
+[node name="Background" type="Sprite2D" parent="Level"]
 texture = ExtResource("1_ix23b")
 centered = false
 
-[node name="Sprite2D2" type="Sprite2D" parent="ColorRect"]
-texture = ExtResource("1_ix23b")
+[node name="BackgroundRight" type="Sprite2D" parent="Level"]
+position = Vector2(1280, 0)
+texture = ExtResource("4_los3h")
 centered = false
 
-[node name="Floor" parent="ColorRect" instance=ExtResource("2_k3jm8")]
+[node name="Floor" parent="Level" instance=ExtResource("2_k3jm8")]
 layout_mode = 0
 anchors_preset = 0
 anchor_top = 0.0
@@ -59,32 +54,27 @@ offset_top = 672.0
 offset_bottom = 720.0
 grow_vertical = 1
 
-[node name="Roof" parent="ColorRect" instance=ExtResource("2_k3jm8")]
-layout_mode = 1
-
-[node name="Wall-Right" parent="ColorRect" instance=ExtResource("3_efusd")]
-layout_mode = 1
-offset_top = -672.0
-offset_bottom = -48.0
-
-[node name="Sprite2D3" type="Sprite2D" parent="ColorRect"]
-position = Vector2(1280, 0)
-texture = ExtResource("4_los3h")
-centered = false
-
-[node name="Roof2" parent="ColorRect" instance=ExtResource("2_k3jm8")]
-layout_mode = 1
-offset_left = 1280.0
-offset_right = 2560.0
-
-[node name="Horizontal Barrier" parent="ColorRect" instance=ExtResource("5_j41gj")]
+[node name="Floor2" parent="Level" instance=ExtResource("5_j41gj")]
 layout_mode = 1
 offset_left = 1280.0
 offset_top = -48.0
 offset_right = 2560.0
 offset_bottom = 0.0
 
-[node name="Label" type="Label" parent="ColorRect"]
+[node name="Roof" parent="Level" instance=ExtResource("2_k3jm8")]
+layout_mode = 1
+
+[node name="Roof2" parent="Level" instance=ExtResource("2_k3jm8")]
+layout_mode = 1
+offset_left = 1280.0
+offset_right = 2560.0
+
+[node name="Wall-Right" parent="Level" instance=ExtResource("3_efusd")]
+layout_mode = 1
+offset_top = -672.0
+offset_bottom = -48.0
+
+[node name="Cake!!!" type="Label" parent="Level"]
 modulate = Color(0, 0, 0, 1)
 layout_mode = 0
 offset_left = 1192.0
@@ -92,6 +82,26 @@ offset_top = 224.0
 offset_right = 1274.0
 offset_bottom = 250.0
 text = "CAKE!!! --->"
+
+[node name="EasterEggDiscord" type="Sprite2D" parent="Level"]
+z_index = 5
+position = Vector2(616, 808)
+texture = ExtResource("23_f80x8")
+
+[node name="EasterEggSpaceCore" type="Sprite2D" parent="Level"]
+position = Vector2(1264, 976)
+texture = ExtResource("24_mngsn")
+
+[node name="JumpBlocks" type="Node2D" parent="Level"]
+
+[node name="JumpBlock" parent="Level/JumpBlocks" instance=ExtResource("16_du1xt")]
+position = Vector2(792, 696)
+
+[node name="JumpBlock2" parent="Level/JumpBlocks" instance=ExtResource("16_du1xt")]
+position = Vector2(840, 696)
+
+[node name="JumpBlock3" parent="Level/JumpBlocks" instance=ExtResource("16_du1xt")]
+position = Vector2(744, 696)
 
 [node name="Player" parent="." instance=ExtResource("6_kpg8w")]
 position = Vector2(216, 432)
@@ -130,14 +140,11 @@ position = Vector2(-128, 0)
 [node name="Sprite2D" type="Sprite2D" parent="PortalControl/Blue"]
 texture = ExtResource("10_ih04e")
 
-[node name="Obstacle" type="Node2D" parent="."]
-position = Vector2(-944, 200)
-
-[node name="Door" parent="Obstacle" groups=["PortalForbidden"] instance=ExtResource("11_sdsuk")]
-position = Vector2(1056, 208)
+[node name="HubDoor" parent="." groups=["PortalForbidden"] instance=ExtResource("11_sdsuk")]
+position = Vector2(112, 408)
 path = "res://level/Hub.tscn"
 
-[node name="Label" type="Label" parent="Obstacle/Door"]
+[node name="Label" type="Label" parent="HubDoor"]
 modulate = Color(0, 0, 0, 1)
 offset_left = -56.0
 offset_top = -88.0
@@ -147,23 +154,23 @@ text = "HUB"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="StaticBody2D" parent="Obstacle" groups=["PortalForbidden"] instance=ExtResource("12_fg4j3")]
-position = Vector2(1208, 296)
+[node name="StaticBody2D" parent="HubDoor" groups=["PortalForbidden"] instance=ExtResource("12_fg4j3")]
+position = Vector2(152, 88)
 
-[node name="StaticBody2D2" parent="Obstacle" groups=["PortalForbidden"] instance=ExtResource("12_fg4j3")]
-position = Vector2(1160, 296)
+[node name="StaticBody2D2" parent="HubDoor" groups=["PortalForbidden"] instance=ExtResource("12_fg4j3")]
+position = Vector2(104, 88)
 
-[node name="StaticBody2D3" parent="Obstacle" groups=["PortalForbidden"] instance=ExtResource("12_fg4j3")]
-position = Vector2(1112, 296)
+[node name="StaticBody2D3" parent="HubDoor" groups=["PortalForbidden"] instance=ExtResource("12_fg4j3")]
+position = Vector2(56, 88)
 
-[node name="StaticBody2D4" parent="Obstacle" groups=["PortalForbidden"] instance=ExtResource("12_fg4j3")]
-position = Vector2(1064, 296)
+[node name="StaticBody2D4" parent="HubDoor" groups=["PortalForbidden"] instance=ExtResource("12_fg4j3")]
+position = Vector2(8, 88)
 
-[node name="StaticBody2D5" parent="Obstacle" groups=["PortalForbidden"] instance=ExtResource("12_fg4j3")]
-position = Vector2(1016, 296)
+[node name="StaticBody2D5" parent="HubDoor" groups=["PortalForbidden"] instance=ExtResource("12_fg4j3")]
+position = Vector2(-40, 88)
 
-[node name="StaticBody2D6" parent="Obstacle" groups=["PortalForbidden"] instance=ExtResource("12_fg4j3")]
-position = Vector2(1256, 296)
+[node name="StaticBody2D6" parent="HubDoor" groups=["PortalForbidden"] instance=ExtResource("12_fg4j3")]
+position = Vector2(200, 88)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 anchor_mode = 0
@@ -178,15 +185,6 @@ offset_right = 690.0
 offset_bottom = 131.0
 theme_override_font_sizes/font_size = 20
 text = "0000"
-
-[node name="help_block_jump" parent="." instance=ExtResource("16_du1xt")]
-position = Vector2(792, 696)
-
-[node name="help_block_jump2" parent="." instance=ExtResource("16_du1xt")]
-position = Vector2(840, 696)
-
-[node name="help_block_jump3" parent="." instance=ExtResource("16_du1xt")]
-position = Vector2(744, 696)
 
 [node name="new_section_placer" type="Area2D" parent="."]
 position = Vector2(1280, 360)
@@ -281,28 +279,12 @@ text = "Try maximizing the screen for ez-mode
 (the game is not optimised for it though)"
 horizontal_alignment = 1
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-z_index = 5
-position = Vector2(616, 808)
-texture = ExtResource("23_f80x8")
-
-[node name="Sprite2D2" type="Sprite2D" parent="."]
-position = Vector2(1264, 976)
-texture = ExtResource("24_mngsn")
-
-[node name="player_info" type="VBoxContainer" parent="."]
-offset_left = 56.0
-offset_top = 48.0
-offset_right = 209.0
-offset_bottom = 100.0
-script = SubResource("GDScript_86cyj")
-
 [connection signal="body_entered" from="PortalControl/Orange" to="PortalControl" method="_on_orange_body_entered"]
 [connection signal="body_exited" from="PortalControl/Orange" to="PortalControl" method="_on_orange_body_exited"]
 [connection signal="body_entered" from="PortalControl/Blue" to="PortalControl" method="_on_blue_body_entered"]
 [connection signal="body_exited" from="PortalControl/Blue" to="PortalControl" method="_on_blue_body_exited"]
-[connection signal="body_entered" from="Obstacle/Door" to="Obstacle/Door" method="_on_body_entered"]
-[connection signal="body_exited" from="Obstacle/Door" to="Obstacle/Door" method="_on_body_exited"]
+[connection signal="body_entered" from="HubDoor" to="HubDoor" method="_on_body_entered"]
+[connection signal="body_exited" from="HubDoor" to="HubDoor" method="_on_body_exited"]
 [connection signal="body_entered" from="new_section_placer" to="new_section_placer" method="_on_body_entered"]
 [connection signal="pressed" from="CanvasLayer/Gameover/CenterContainer/VBoxContainer/Try Again" to="CanvasLayer/Gameover" method="_on_try_again_pressed"]
 [connection signal="pressed" from="CanvasLayer/Gameover/CenterContainer/VBoxContainer/Back HUB" to="CanvasLayer/Gameover" method="_on_back_hub_pressed"]
